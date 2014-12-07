@@ -31,8 +31,8 @@ struct matrix2x2
 	{
 		m[0] = f;
 		m[1] = 0.0f;
-		m[2] = f;
-		m[3] = 0.0f;
+		m[2] = 0.0f;
+		m[3] = f;
 	}
 
 	inline explicit matrix2x2 (T a, T b, T c, T d)

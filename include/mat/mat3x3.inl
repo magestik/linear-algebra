@@ -91,9 +91,9 @@ inline matrix3x3<T> operator/(const matrix3x3<T> & mat, T s)
 template<typename T>
 inline T determinant(const matrix3x3<T> & mat)
 {
-	return((mat[0][0] * ((mat[1][1] * mat[2][2]) - (mat[1][2] * mat[2][1])))
-		 - (mat[1][0] * ((mat[0][1] * mat[2][2]) - (mat[0][2] * mat[2][1])))
-		 + (mat[2][0] * ((mat[0][1] * mat[1][2]) - (mat[0][2] * mat[1][1]))));
+	return((mat[0][0] * ((mat[1][1] * mat[2][2]) - (mat[2][1] * mat[1][2])))
+		 - (mat[1][0] * ((mat[0][1] * mat[2][2]) - (mat[2][1] * mat[0][2])))
+		 + (mat[2][0] * ((mat[0][1] * mat[1][2]) - (mat[1][1] * mat[0][2]))));
 }
 
 /**
@@ -104,17 +104,17 @@ inline matrix3x3<T> inverse(const matrix3x3<T> & mat)
 {
 	matrix3x3<T> adj;
 
-	adj[0][0] = mat[1][1] * mat[2][2] - mat[1][2] * mat[2][1];
-	adj[0][1] = mat[0][2] * mat[2][1] - mat[0][1] * mat[2][2];
-	adj[0][2] = mat[0][1] * mat[1][2] - mat[0][2] * mat[1][1];
+	adj[0][0] =   (mat[1][1] * mat[2][2] - mat[1][2] * mat[2][1]);
+	adj[0][1] = - (mat[0][1] * mat[2][2] - mat[0][2] * mat[2][1]);
+	adj[0][2] =   (mat[0][1] * mat[1][2] - mat[0][2] * mat[1][1]);
 
-	adj[1][0] = mat[1][2] * mat[2][0] - mat[1][0] * mat[2][2];
-	adj[1][1] = mat[0][0] * mat[2][2] - mat[0][2] * mat[2][0];
-	adj[1][2] = mat[0][2] * mat[1][0] - mat[0][0] * mat[1][2];
+	adj[1][0] = - (mat[1][0] * mat[2][2] - mat[1][2] * mat[2][0]);
+	adj[1][1] =   (mat[0][0] * mat[2][2] - mat[0][2] * mat[2][0]);
+	adj[1][2] = - (mat[0][0] * mat[1][2] - mat[0][2] * mat[1][0]);
 
-	adj[2][0] = mat[1][0] * mat[2][1] - mat[1][1] * mat[2][0];
-	adj[2][1] = mat[0][1] * mat[2][0] - mat[0][0] * mat[2][1];
-	adj[2][2] = mat[0][0] * mat[1][1] - mat[0][1] * mat[1][0];
+	adj[2][0] =   (mat[1][0] * mat[2][1] - mat[1][1] * mat[2][0]);
+	adj[2][1] = - (mat[0][0] * mat[2][1] - mat[0][1] * mat[2][0]);
+	adj[2][2] =   (mat[0][0] * mat[1][1] - mat[0][1] * mat[1][0]);
 
 	T det = determinant(mat);
 

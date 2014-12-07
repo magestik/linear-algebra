@@ -78,7 +78,7 @@ inline matrix2x2<T> operator/(const matrix2x2<T> & mat, T s)
 template<typename T>
 inline T determinant(const matrix2x2<T> & mat)
 {
-	return((mat[0][0] * mat[1][1]) - (mat[0][1] * mat[1][2]));
+	return((mat[0][0] * mat[1][1]) - (mat[0][1] * mat[1][0]));
 }
 
 /**
@@ -87,9 +87,11 @@ inline T determinant(const matrix2x2<T> & mat)
 template<typename T>
 inline matrix2x2<T> inverse(const matrix2x2<T> & mat)
 {
+	matrix2x2<T> adj (mat[1][1], - mat[0][1], - mat[1][0], mat[0][0]);
+
 	T det = determinant(mat);
 
-	return mat / det;
+	return adj / det;
 }
 
 /**

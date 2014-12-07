@@ -145,8 +145,47 @@ inline T determinant(const matrix4x4<T> & mat)
 template<typename T>
 inline matrix4x4<T> inverse(const matrix4x4<T> & mat)
 {
-	// TODO
-	return(matrix4x4<T>());
+	T SubFactor00 = mat[2][2] * mat[3][3] - mat[2][3] * mat[3][2];
+	T SubFactor01 = mat[1][2] * mat[3][3] - mat[1][3] * mat[3][2];
+	T SubFactor02 = mat[1][2] * mat[2][3] - mat[1][3] * mat[2][2];
+	T SubFactor03 = mat[0][2] * mat[3][3] - mat[0][3] * mat[3][2];
+	T SubFactor04 = mat[0][2] * mat[2][3] - mat[0][3] * mat[2][2];
+	T SubFactor05 = mat[0][2] * mat[1][3] - mat[0][3] * mat[1][2];
+	T SubFactor06 = mat[2][1] * mat[3][3] - mat[2][3] * mat[3][1];
+	T SubFactor07 = mat[1][1] * mat[3][3] - mat[1][3] * mat[3][1];
+	T SubFactor08 = mat[1][1] * mat[2][3] - mat[1][3] * mat[2][1];
+	T SubFactor09 = mat[0][1] * mat[3][3] - mat[0][3] * mat[3][1];
+	T SubFactor10 = mat[0][1] * mat[2][3] - mat[0][3] * mat[2][1];
+	T SubFactor11 = mat[1][1] * mat[3][3] - mat[1][3] * mat[3][1];
+	T SubFactor12 = mat[0][1] * mat[1][3] - mat[0][3] * mat[1][1];
+	T SubFactor13 = mat[2][1] * mat[3][2] - mat[2][2] * mat[3][1];
+	T SubFactor14 = mat[1][1] * mat[3][2] - mat[1][2] * mat[3][1];
+	T SubFactor15 = mat[1][1] * mat[2][2] - mat[1][2] * mat[2][1];
+	T SubFactor16 = mat[0][1] * mat[3][2] - mat[0][2] * mat[3][1];
+	T SubFactor17 = mat[0][1] * mat[2][2] - mat[0][2] * mat[2][1];
+	T SubFactor18 = mat[0][1] * mat[1][2] - mat[0][2] * mat[1][1];
+
+	matrix4x4<T> adj;
+	adj[0][0] = + (mat[1][1] * SubFactor00 - mat[2][1] * SubFactor01 + mat[3][1] * SubFactor02);
+	adj[0][1] = - (mat[0][1] * SubFactor00 - mat[2][1] * SubFactor03 + mat[3][1] * SubFactor04);
+	adj[0][2] = + (mat[0][1] * SubFactor01 - mat[1][1] * SubFactor03 + mat[3][1] * SubFactor05);
+	adj[0][3] = - (mat[0][1] * SubFactor02 - mat[1][1] * SubFactor04 + mat[2][1] * SubFactor05);
+	adj[1][0] = - (mat[1][0] * SubFactor00 - mat[2][0] * SubFactor01 + mat[3][0] * SubFactor02);
+	adj[1][1] = + (mat[0][0] * SubFactor00 - mat[2][0] * SubFactor03 + mat[3][0] * SubFactor04);
+	adj[1][2] = - (mat[0][0] * SubFactor01 - mat[1][0] * SubFactor03 + mat[3][0] * SubFactor05);
+	adj[1][3] = + (mat[0][0] * SubFactor02 - mat[1][0] * SubFactor04 + mat[2][0] * SubFactor05);
+	adj[2][0] = + (mat[1][0] * SubFactor06 - mat[2][0] * SubFactor07 + mat[3][0] * SubFactor08);
+	adj[2][1] = - (mat[0][0] * SubFactor06 - mat[2][0] * SubFactor09 + mat[3][0] * SubFactor10);
+	adj[2][2] = + (mat[0][0] * SubFactor11 - mat[1][0] * SubFactor09 + mat[3][0] * SubFactor12);
+	adj[2][3] = - (mat[0][0] * SubFactor08 - mat[1][0] * SubFactor10 + mat[2][0] * SubFactor12);
+	adj[3][0] = - (mat[1][0] * SubFactor13 - mat[2][0] * SubFactor14 + mat[3][0] * SubFactor15);
+	adj[3][1] = + (mat[0][0] * SubFactor13 - mat[2][0] * SubFactor16 + mat[3][0] * SubFactor17);
+	adj[3][2] = - (mat[0][0] * SubFactor14 - mat[1][0] * SubFactor16 + mat[3][0] * SubFactor18);
+	adj[3][3] = + (mat[0][0] * SubFactor15 - mat[1][0] * SubFactor17 + mat[2][0] * SubFactor18);
+
+	T det = determinant(mat);
+
+	return adj / det;
 }
 
 /**
