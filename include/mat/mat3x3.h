@@ -88,7 +88,3 @@ private:
 };
 
 #include "mat3x3.inl"
-
-typedef		matrix3x3<float>	 mat3x3;
-typedef		matrix3x3<int>		imat3x3;
-typedef		matrix3x3<double>	dmat3x3;

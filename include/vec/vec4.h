@@ -60,7 +60,3 @@ struct vector4
 };
 
 #include "vec4.inl"
-
-typedef		vector4<float>		 vec4;
-typedef		vector4<int>		ivec4;
-typedef		vector4<double>		dvec4;

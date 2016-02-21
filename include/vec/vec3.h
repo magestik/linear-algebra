@@ -56,7 +56,3 @@ struct vector3
 };
 
 #include "vec3.inl"
-
-typedef		vector3<float>		 vec3;
-typedef		vector3<int>		ivec3;
-typedef		vector3<double>		dvec3;

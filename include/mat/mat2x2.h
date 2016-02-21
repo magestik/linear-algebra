@@ -68,7 +68,3 @@ private:
 };
 
 #include "mat2x2.inl"
-
-typedef		matrix2x2<float>	 mat2x2;
-typedef		matrix2x2<int>		imat2x2;
-typedef		matrix2x2<double>	dmat2x2;

@@ -116,7 +116,3 @@ private:
 };
 
 #include "mat4x4.inl"
-
-typedef		matrix4x4<float>	 mat4x4;
-typedef		matrix4x4<int>		imat4x4;
-typedef		matrix4x4<double>	dmat4x4;

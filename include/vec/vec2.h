@@ -43,7 +43,3 @@ struct vector2
 };
 
 #include "vec2.inl"
-
-typedef		vector2<float>		 vec2;
-typedef		vector2<int>		ivec2;
-typedef		vector2<double>		dvec2;
