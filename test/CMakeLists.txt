@@ -1,12 +1,17 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 2.8.12)
 
-project(algebra_test)
+include(CheckCCompilerFlag)
 
-SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+check_c_compiler_flag(-fno-sanitize=address HAVE_FLAG_SANITIZE_ADDRESS)
 
-include_directories(../include/)
+if (HAVE_FLAG_SANITIZE_ADDRESS)
+	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=address")
+endif (HAVE_FLAG_SANITIZE_ADDRESS)
 
 file(GLOB_RECURSE HEADERS ../include/*.h ../include/*.inl)
 
-add_executable(${PROJECT_NAME} test.cpp ${HEADERS})
+add_executable(algebra_test test.cpp ${HEADERS})
 
+target_include_directories(algebra_test PRIVATE ../include/)
+
+set_property(TARGET algebra_test PROPERTY CXX_STANDARD 11)
