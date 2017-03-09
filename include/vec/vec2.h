@@ -29,7 +29,7 @@ struct vector2
 
 	explicit vector2 (void) : x(0), y(0) { }
 
-	explicit vector2 (T x, T y) : x(x), y(y) { }
+	explicit vector2 (T _x, T _y) : x(_x), y(_y) { }
 
 	T & operator [] (unsigned int index)
 	{

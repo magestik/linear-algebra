@@ -40,9 +40,9 @@ struct vector3
 
 	explicit vector3 (void) : x(0), y(0), z(0) { }
 
-	explicit vector3 (T x, T y, T z) : x(x), y(y), z(z) { }
+	explicit vector3 (T _x, T _y, T _z) : x(_x), y(_y), z(_z) { }
 
-	explicit vector3 (const vector2<T> & v, T z) : x(v.x), y(v.y), z(z) { }
+	explicit vector3 (const vector2<T> & v, T _z) : x(v.x), y(v.y), z(_z) { }
 
 	T & operator [] (unsigned int index)
 	{
