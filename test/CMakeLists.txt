@@ -12,6 +12,6 @@ file(GLOB_RECURSE HEADERS ../include/*.h ../include/*.inl)
 
 add_executable(algebra_test test.cpp ${HEADERS})
 
-target_include_directories(algebra_test PRIVATE ../include/)
+target_link_libraries(algebra_test PRIVATE linear-algebra)
 
 set_property(TARGET algebra_test PROPERTY CXX_STANDARD 11)
