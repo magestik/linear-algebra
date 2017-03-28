@@ -46,6 +46,8 @@ struct vector4
 
 	explicit vector4 (const vector3<T> & v, T _w) : x(v.x), y(v.y), z(v.z), w(_w) { }
 
+	explicit vector4 (const vector2<T> & v1, T _z, T _w) : x(v1.x), y(v1.y), z(_z), w(_w) { }
+
 	explicit vector4 (const vector2<T> & v1, const vector2<T> & v2) : x(v1.x), y(v1.y), z(v2.x), w(v2.y) { }
 
 	T & operator [] (unsigned int index)
