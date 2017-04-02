@@ -15,8 +15,7 @@
 
 #pragma once
 
-#include <math.h>
-#include <stdint.h>
+#include "Maths.h"
 
 #include "vec/bvec2.h"
 #include "vec/bvec3.h"
