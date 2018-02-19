@@ -1,4 +1,6 @@
-cmake_minimum_required(VERSION 2.8.12)
+cmake_minimum_required(VERSION 3.1)
+
+set(CMAKE_CXX_STANDARD 11)
 
 include(CheckCCompilerFlag)
 
@@ -8,10 +10,6 @@ if (HAVE_FLAG_SANITIZE_ADDRESS)
 	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=address")
 endif (HAVE_FLAG_SANITIZE_ADDRESS)
 
-file(GLOB_RECURSE HEADERS ../include/*.h ../include/*.inl)
-
-add_executable(algebra_test test.cpp ${HEADERS})
+add_executable(algebra_test test.cpp)
 
 target_link_libraries(algebra_test PRIVATE linear-algebra)
-
-set_property(TARGET algebra_test PROPERTY CXX_STANDARD 11)
