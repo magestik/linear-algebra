@@ -8,6 +8,4 @@ add_library(linear-algebra INTERFACE)
 
 target_include_directories(linear-algebra INTERFACE "${CMAKE_CURRENT_SOURCE_DIR}/include")
 
-project(linear-algebra)
-
 add_subdirectory(test)
