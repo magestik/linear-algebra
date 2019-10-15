@@ -1,12 +1,9 @@
 #pragma once
 
-#include <cmath>
-#include <stdint.h>
-
 /**
  * return the lesser of two values
  */
-inline float min(float x, float y)
+static inline float min(float x, float y)
 {
 	return((y < x) ? y : x);
 }
@@ -14,7 +11,7 @@ inline float min(float x, float y)
 /**
  * return the greater of two values
  */
-inline float max(float x, float y)
+static inline float max(float x, float y)
 {
 	return((y > x) ? y : x);
 }
@@ -22,15 +19,39 @@ inline float max(float x, float y)
 /**
  * constrain a value to lie between two further values
  */
-inline float clamp(float x, float minVal, float maxVal)
+static inline float clamp(float x, float minVal, float maxVal)
 {
 	return(max(min(x, maxVal), minVal));
 }
 
 /**
+ * return the lesser of three values
+ */
+static inline float min3(float x, float y, float z)
+{
+	return min(z, min(x, y));
+}
+
+/**
+ * return the greater of three values
+ */
+static inline float max3(float x, float y, float z)
+{
+	return min(z, min(x, y));
+}
+
+/**
+ * return the median of three values
+ */
+static inline float med3(float x, float y, float z)
+{
+	return max(min(x, y), min(max(x, y), z));
+}
+
+/**
  * linearly interpolate between two values
  */
-inline float mix(float x, float y, float a)
+static inline float mix(float x, float y, float a)
 {
 	return((x * (1 - a)) + (y * a));
 }
@@ -38,7 +59,7 @@ inline float mix(float x, float y, float a)
 /**
  * convert a quantity in radians to degrees
  */
-inline float degrees(float radians)
+static inline float degrees(float radians)
 {
 	return(radians * (180.0f / 3.14159265358979323846));
 }
@@ -46,7 +67,7 @@ inline float degrees(float radians)
 /**
  * convert a quantity in degrees to radians
  */
-inline float radians(float degrees)
+static inline float radians(float degrees)
 {
 	return(degrees * (3.14159265358979323846 / 180.0f));
 }

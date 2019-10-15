@@ -1,6 +1,10 @@
 #pragma once
 
+#include <math.h>
+#include <stdint.h>
+
 #include "Maths.h"
+#include "Vector.h"
 
 #include "mat/mat2x2.h"
 #include "mat/mat3x3.h"
