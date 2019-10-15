@@ -37,7 +37,7 @@ static inline float min3(float x, float y, float z)
  */
 static inline float max3(float x, float y, float z)
 {
-	return min(z, min(x, y));
+	return max(z, max(x, y));
 }
 
 /**
