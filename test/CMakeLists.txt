@@ -15,3 +15,6 @@ target_link_libraries(test_linear_algebra_mat PRIVATE linear-algebra)
 
 add_executable(test_linear_algebra_vec vector.cpp)
 target_link_libraries(test_linear_algebra_vec PRIVATE linear-algebra)
+
+add_test(NAME linear_algebra_mat COMMAND $<TARGET_FILE:test_linear_algebra_mat>)
+add_test(NAME linear_algebra_vec COMMAND $<TARGET_FILE:test_linear_algebra_vec>)
