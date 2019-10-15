@@ -53,7 +53,7 @@ static inline float med3(float x, float y, float z)
  */
 static inline float mix(float x, float y, float a)
 {
-	return((x * (1 - a)) + (y * a));
+	return((x * (1.0f - a)) + (y * a));
 }
 
 /**
@@ -61,7 +61,8 @@ static inline float mix(float x, float y, float a)
  */
 static inline float degrees(float radians)
 {
-	return(radians * (180.0f / 3.14159265358979323846));
+	static constexpr float f = (180.0f / 3.14159265358979323846f);
+	return radians * f;
 }
 
 /**
@@ -69,5 +70,6 @@ static inline float degrees(float radians)
  */
 static inline float radians(float degrees)
 {
-	return(degrees * (3.14159265358979323846 / 180.0f));
+	static constexpr float f = (3.14159265358979323846f / 180.0f);
+	return degrees * f;
 }
