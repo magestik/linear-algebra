@@ -10,6 +10,8 @@ if (HAVE_FLAG_SANITIZE_ADDRESS)
 	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=address")
 endif (HAVE_FLAG_SANITIZE_ADDRESS)
 
-add_executable(algebra_test test.cpp)
+add_executable(test_linear_algebra_mat matrix.cpp)
+target_link_libraries(test_linear_algebra_mat PRIVATE linear-algebra)
 
-target_link_libraries(algebra_test PRIVATE linear-algebra)
+add_executable(test_linear_algebra_vec vector.cpp)
+target_link_libraries(test_linear_algebra_vec PRIVATE linear-algebra)
