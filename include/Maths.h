@@ -1,6 +1,25 @@
 #pragma once
 
 /**
+ * extract the sign of the parameter
+ */
+static inline float sign(float x)
+{
+	if (x < 0.0f)
+	{
+		return -1.0f;
+	}
+	else if (x > 0.0f)
+	{
+		return 1.0f;
+	}
+	else
+	{
+		return 0.0f;
+	}
+}
+
+/**
  * return the lesser of two values
  */
 static inline float min(float x, float y)
@@ -21,7 +40,7 @@ static inline float max(float x, float y)
  */
 static inline float clamp(float x, float minVal, float maxVal)
 {
-	return(max(min(x, maxVal), minVal));
+	return max(min(x, maxVal), minVal);
 }
 
 /**
