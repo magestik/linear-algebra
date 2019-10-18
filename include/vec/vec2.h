@@ -1,5 +1,7 @@
 #pragma once
 
+#include "bvec2.h"
+
 template<typename T>
 struct vector2
 {

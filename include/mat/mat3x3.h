@@ -1,5 +1,7 @@
 #pragma once
 
+#include "vec/vec3.h"
+
 template<typename T>
 struct matrix3x3
 {
