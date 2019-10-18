@@ -12,9 +12,9 @@ struct vector2
 		float data [2];
 	};
 
-	explicit vector2 (void) : x(0), y(0) { }
+	explicit constexpr vector2 (void) : x(0), y(0) { }
 
-	explicit vector2 (T _x, T _y) : x(_x), y(_y) { }
+	explicit constexpr vector2 (T _x, T _y) : x(_x), y(_y) { }
 
 	T & operator [] (unsigned int index)
 	{

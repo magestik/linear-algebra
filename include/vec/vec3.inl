@@ -8,7 +8,7 @@
  * TODO comment
  */
 template<typename T>
-static inline vector3<T> operator-(const vector3<T> & v)
+static inline constexpr vector3<T> operator-(const vector3<T> & v)
 {
    return(vector3<T>(-v.x, -v.y, -v.z));
 }
@@ -17,7 +17,7 @@ static inline vector3<T> operator-(const vector3<T> & v)
  * TODO comment
  */
 template<typename T>
-static inline vector3<T> operator+(const vector3<T> & a, const vector3<T> & b)
+static inline constexpr vector3<T> operator+(const vector3<T> & a, const vector3<T> & b)
 {
 	return(vector3<T>((a.x + b.x), (a.y + b.y), (a.z + b.z)));
 }
@@ -26,7 +26,7 @@ static inline vector3<T> operator+(const vector3<T> & a, const vector3<T> & b)
  * TODO comment
  */
 template<typename T>
-static inline vector3<T> operator-(const vector3<T> & a, const vector3<T> & b)
+static inline constexpr vector3<T> operator-(const vector3<T> & a, const vector3<T> & b)
 {
 	return(vector3<T>((a.x - b.x), (a.y - b.y), (a.z - b.z)));
 }
@@ -35,7 +35,7 @@ static inline vector3<T> operator-(const vector3<T> & a, const vector3<T> & b)
  * TODO comment
  */
 template<typename T>
-static inline vector3<T> operator*(const vector3<T> & a, const vector3<T> & b)
+static inline constexpr vector3<T> operator*(const vector3<T> & a, const vector3<T> & b)
 {
 	return(vector3<T>((a.x * b.x), (a.y * b.y), (a.z * b.z)));
 }
@@ -44,7 +44,7 @@ static inline vector3<T> operator*(const vector3<T> & a, const vector3<T> & b)
  * TODO comment
  */
 template<typename T>
-static inline vector3<T> operator/(const vector3<T> & a, const vector3<T> & b)
+static inline constexpr vector3<T> operator/(const vector3<T> & a, const vector3<T> & b)
 {
 	return(vector3<T>((a.x / b.x), (a.y / b.y), (a.z / b.z)));
 }
@@ -53,7 +53,7 @@ static inline vector3<T> operator/(const vector3<T> & a, const vector3<T> & b)
  * TODO comment
  */
 template<typename T>
-static inline vector3<T> operator*(float s, const vector3<T> & v)
+static inline constexpr vector3<T> operator*(float s, const vector3<T> & v)
 {
 	return(vector3<T>((s * v.x), (s * v.y), (s * v.z)));
 }
@@ -62,7 +62,7 @@ static inline vector3<T> operator*(float s, const vector3<T> & v)
  * TODO comment
  */
 template<typename T>
-static inline vector3<T> operator*(const vector3<T> & v, float s)
+static inline constexpr vector3<T> operator*(const vector3<T> & v, float s)
 {
 	return(vector3<T>((s * v.x), (s * v.y), (s * v.z)));
 }
@@ -71,7 +71,7 @@ static inline vector3<T> operator*(const vector3<T> & v, float s)
  * TODO comment
  */
 template<typename T>
-static inline vector3<T> operator/(float s, const vector3<T> & v)
+static inline constexpr vector3<T> operator/(float s, const vector3<T> & v)
 {
 	return(vector3<T>((s / v.x), (s / v.y), (s / v.z)));
 }
@@ -80,7 +80,7 @@ static inline vector3<T> operator/(float s, const vector3<T> & v)
  * TODO comment
  */
 template<typename T>
-static inline vector3<T> operator/(const vector3<T> & v, float s)
+static inline constexpr vector3<T> operator/(const vector3<T> & v, float s)
 {
 	return(vector3<T>((v.x / s), (v.y / s), (v.z / s)));
 }
@@ -89,7 +89,7 @@ static inline vector3<T> operator/(const vector3<T> & v, float s)
  * TODO comment
  */
 template<typename T>
-static inline bvec3 operator==(const vector3<T> & a, const vector3<T> & b)
+static inline constexpr bvec3 operator==(const vector3<T> & a, const vector3<T> & b)
 {
 	return(bvec3((a.x == b.x), (a.y == b.y), (a.z == b.z)));
 }
@@ -98,7 +98,7 @@ static inline bvec3 operator==(const vector3<T> & a, const vector3<T> & b)
  * TODO comment
  */
 template<typename T>
-static inline bvec3 operator>(const vector3<T> & a, const vector3<T> & b)
+static inline constexpr bvec3 operator>(const vector3<T> & a, const vector3<T> & b)
 {
 	return(bvec3((a.x > b.x), (a.y > b.y), (a.z > b.z)));
 }
@@ -107,7 +107,7 @@ static inline bvec3 operator>(const vector3<T> & a, const vector3<T> & b)
  * TODO comment
  */
 template<typename T>
-static inline bvec3 operator>=(const vector3<T> & a, const vector3<T> & b)
+static inline constexpr bvec3 operator>=(const vector3<T> & a, const vector3<T> & b)
 {
 	return(bvec3((a.x >= b.x), (a.y >= b.y), (a.z >= b.z)));
 }
@@ -116,7 +116,7 @@ static inline bvec3 operator>=(const vector3<T> & a, const vector3<T> & b)
  * TODO comment
  */
 template<typename T>
-static inline bvec3 operator<(const vector3<T> & a, const vector3<T> & b)
+static inline constexpr bvec3 operator<(const vector3<T> & a, const vector3<T> & b)
 {
 	return(bvec3((a.x < b.x), (a.y < b.y), (a.z < b.z)));
 }
@@ -125,7 +125,7 @@ static inline bvec3 operator<(const vector3<T> & a, const vector3<T> & b)
  * TODO comment
  */
 template<typename T>
-static inline bvec3 operator<=(const vector3<T> & a, const vector3<T> & b)
+static inline constexpr bvec3 operator<=(const vector3<T> & a, const vector3<T> & b)
 {
 	return(bvec3((a.x <= b.x), (a.y <= b.y), (a.z <= b.z)));
 }
@@ -134,7 +134,7 @@ static inline bvec3 operator<=(const vector3<T> & a, const vector3<T> & b)
  * TODO comment
  */
 template<typename T>
-static inline bvec3 operator!=(const vector3<T> & a, const vector3<T> & b)
+static inline constexpr bvec3 operator!=(const vector3<T> & a, const vector3<T> & b)
 {
 	return(bvec3((a.x != b.x), (a.y != b.y), (a.z != b.z)));
 }
@@ -143,7 +143,7 @@ static inline bvec3 operator!=(const vector3<T> & a, const vector3<T> & b)
  * calculate the cross product of two vectors
  */
 template<typename T>
-static inline vector3<T> cross(const vector3<T> & a, const vector3<T> & b)
+static inline /*constexpr*/ vector3<T> cross(const vector3<T> & a, const vector3<T> & b)
 {
 	float x = (a.y * b.z) - (a.z * b.y);
 	float y = (a.z * b.x) - (a.x * b.z);
@@ -156,7 +156,7 @@ static inline vector3<T> cross(const vector3<T> & a, const vector3<T> & b)
  * calculate the length of a vector
  */
 template<typename T>
-static inline float length(const vector3<T> & v)
+static inline constexpr float length(const vector3<T> & v)
 {
 	return(sqrt((v.x * v.x) + (v.y * v.y) + (v.z * v.z)));
 }
@@ -165,7 +165,7 @@ static inline float length(const vector3<T> & v)
  * calculate the distance between two points
  */
 template<typename T>
-static inline float distance(const vector3<T> & a, const vector3<T> & b)
+static inline constexpr float distance(const vector3<T> & a, const vector3<T> & b)
 {
 	return(length(b - a));
 }
@@ -174,7 +174,7 @@ static inline float distance(const vector3<T> & a, const vector3<T> & b)
  * calculate the dot product of two vectors
  */
 template<typename T>
-static inline float dot(const vector3<T> & a, const vector3<T> & b)
+static inline constexpr float dot(const vector3<T> & a, const vector3<T> & b)
 {
 	return((a.x * b.x) + (a.y * b.y) + (a.z * b.z));
 }
@@ -183,7 +183,7 @@ static inline float dot(const vector3<T> & a, const vector3<T> & b)
  * calculate the normalize product of two vectors
  */
 template<typename T>
-static inline vector3<T> normalize(const vector3<T> & v)
+static inline /*constexpr*/ vector3<T> normalize(const vector3<T> & v)
 {
 	T len = length(v);
 
@@ -199,7 +199,7 @@ static inline vector3<T> normalize(const vector3<T> & v)
  * calculate the reflection direction for an incident vector
  */
 template<typename T>
-static inline vector3<T> reflect(const vector3<T> & I, const vector3<T> & N)
+static inline constexpr vector3<T> reflect(const vector3<T> & I, const vector3<T> & N)
 {
 	return(I - 2 * dot(N, I) * N);
 }
@@ -208,7 +208,7 @@ static inline vector3<T> reflect(const vector3<T> & I, const vector3<T> & N)
  * calculate the refraction direction for an incident vector
  */
 template<typename T>
-static inline vector3<T> refract(const vector3<T> & I, const vector3<T> & N, float eta)
+static inline /*constexpr*/ vector3<T> refract(const vector3<T> & I, const vector3<T> & N, float eta)
 {
 	float k = 1 - eta * eta * (1 - dot(N, I) * dot(N, I));
 
@@ -224,7 +224,7 @@ static inline vector3<T> refract(const vector3<T> & I, const vector3<T> & N, flo
  * perform a component-wise equal-to comparison of two vectors
  */
 template<typename T>
-static bvec3 equal(const vector3<T> & a, const vector3<T> & b)
+static constexpr bvec3 equal(const vector3<T> & a, const vector3<T> & b)
 {
 	return(a == b);
 }
@@ -233,7 +233,7 @@ static bvec3 equal(const vector3<T> & a, const vector3<T> & b)
  * perform a component-wise greater-than comparison of two vectors
  */
 template<typename T>
-static bvec3 greaterThan(const vector3<T> & a, const vector3<T> & b)
+static constexpr bvec3 greaterThan(const vector3<T> & a, const vector3<T> & b)
 {
 	return(a > b);
 }
@@ -242,7 +242,7 @@ static bvec3 greaterThan(const vector3<T> & a, const vector3<T> & b)
  * perform a component-wise greater-than-or-equal comparison of two vectors
  */
 template<typename T>
-static bvec3 greaterThanEqual(const vector3<T> & a, const vector3<T> & b)
+static constexpr bvec3 greaterThanEqual(const vector3<T> & a, const vector3<T> & b)
 {
 	return(a >= b);
 }
@@ -251,7 +251,7 @@ static bvec3 greaterThanEqual(const vector3<T> & a, const vector3<T> & b)
  * perform a component-wise less-than comparison of two vectors
  */
 template<typename T>
-static bvec3 lessThan(const vector3<T> & a, const vector3<T> & b)
+static constexpr bvec3 lessThan(const vector3<T> & a, const vector3<T> & b)
 {
 	return(a < b);
 }
@@ -260,7 +260,7 @@ static bvec3 lessThan(const vector3<T> & a, const vector3<T> & b)
  * perform a component-wise less-than-or-equal comparison of two vectors
  */
 template<typename T>
-static bvec3 lessThanEqual(const vector3<T> & a, const vector3<T> & b)
+static constexpr bvec3 lessThanEqual(const vector3<T> & a, const vector3<T> & b)
 {
 	return(a <= b);
 }
@@ -269,7 +269,7 @@ static bvec3 lessThanEqual(const vector3<T> & a, const vector3<T> & b)
  * perform a component-wise not-equal-to comparison of two vectors
  */
 template<typename T>
-static bvec3 notEqual(const vector3<T> & a, const vector3<T> & b)
+static constexpr bvec3 notEqual(const vector3<T> & a, const vector3<T> & b)
 {
 	return(a != b);
 }
