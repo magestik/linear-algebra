@@ -9,8 +9,6 @@ struct vector2
 	{
 		struct { T x, y; };
 
-		//vector2<T> xy;
-
 		float data [2];
 	};
 

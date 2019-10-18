@@ -18,9 +18,7 @@ struct vector3
 			};
 		};
 
-		struct { vector2<T> xy; /* T w; */};
-
-		//vector3<T> xyz;
+		struct { vector2<T> xy; };
 
 		float data [3];
 	};

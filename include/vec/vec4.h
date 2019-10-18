@@ -14,15 +14,13 @@ struct vector4
 			union
 			{
 				struct { T y, z, w; };
-				struct { vector2<T> yz; /* vector2<T> zw; */ };
-				struct { vector3<T> yzw; /* T w; */ };
+				struct { vector2<T> yz; };
+				struct { vector3<T> yzw; };
 			};
 		};
 
 		struct { vector2<T> xy; vector2<T> zw; };
-		struct { vector3<T> xyz; /* T w; */ };
-
-		//vector4<T> xyzw;
+		struct { vector3<T> xyz; };
 
 		float data [4];
 	};
