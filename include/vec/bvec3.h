@@ -14,7 +14,7 @@ public:
 
 	constexpr bvec3 (bool b1, bool b2, bool b3) : bitset((b1 ? 0x1 : 0) | (b2 ? 0x2 : 0) | (b3 ? 0x4 : 0)) { }
 
-	constexpr bool operator[] (int index)
+	constexpr bool operator[] (int index) const
 	{
 		return bitset & (1 << index);
 	}
