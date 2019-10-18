@@ -3,26 +3,15 @@
 /**
  * extract the sign of the parameter
  */
-static inline float sign(float x)
+static inline constexpr float sign(float x)
 {
-	if (x < 0.0f)
-	{
-		return -1.0f;
-	}
-	else if (x > 0.0f)
-	{
-		return 1.0f;
-	}
-	else
-	{
-		return 0.0f;
-	}
+	return ((x < 0.0f) ? (-1.0f) : ((x > 0.0f) ? 1.0f : 0.0f));
 }
 
 /**
  * return the lesser of two values
  */
-static inline float min(float x, float y)
+static inline constexpr float min(float x, float y)
 {
 	return((y < x) ? y : x);
 }
@@ -30,7 +19,7 @@ static inline float min(float x, float y)
 /**
  * return the greater of two values
  */
-static inline float max(float x, float y)
+static inline constexpr float max(float x, float y)
 {
 	return((y > x) ? y : x);
 }
@@ -38,7 +27,7 @@ static inline float max(float x, float y)
 /**
  * constrain a value to lie between two further values
  */
-static inline float clamp(float x, float minVal, float maxVal)
+static inline constexpr float clamp(float x, float minVal, float maxVal)
 {
 	return max(min(x, maxVal), minVal);
 }
@@ -46,7 +35,7 @@ static inline float clamp(float x, float minVal, float maxVal)
 /**
  * return the lesser of three values
  */
-static inline float min3(float x, float y, float z)
+static inline constexpr float min3(float x, float y, float z)
 {
 	return min(z, min(x, y));
 }
@@ -54,7 +43,7 @@ static inline float min3(float x, float y, float z)
 /**
  * return the greater of three values
  */
-static inline float max3(float x, float y, float z)
+static inline constexpr float max3(float x, float y, float z)
 {
 	return max(z, max(x, y));
 }
@@ -62,7 +51,7 @@ static inline float max3(float x, float y, float z)
 /**
  * return the median of three values
  */
-static inline float med3(float x, float y, float z)
+static inline constexpr float med3(float x, float y, float z)
 {
 	return max(min(x, y), min(max(x, y), z));
 }
@@ -70,7 +59,7 @@ static inline float med3(float x, float y, float z)
 /**
  * linearly interpolate between two values
  */
-static inline float mix(float x, float y, float a)
+static inline constexpr float mix(float x, float y, float a)
 {
 	return((x * (1.0f - a)) + (y * a));
 }
@@ -78,17 +67,15 @@ static inline float mix(float x, float y, float a)
 /**
  * convert a quantity in radians to degrees
  */
-static inline float degrees(float radians)
+static inline constexpr float degrees(float radians)
 {
-	static constexpr float f = (180.0f / 3.14159265358979323846f);
-	return radians * f;
+	return radians * (180.0f / 3.14159265358979323846f);
 }
 
 /**
  * convert a quantity in degrees to radians
  */
-static inline float radians(float degrees)
+static inline constexpr float radians(float degrees)
 {
-	static constexpr float f = (3.14159265358979323846f / 180.0f);
-	return degrees * f;
+	return degrees * (3.14159265358979323846f / 180.0f);
 }
