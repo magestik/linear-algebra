@@ -3,63 +3,43 @@
 #include <assert.h>
 
 /**
- * @brief test_float_min3
+ * test_vec2_length
  */
-void test_float_min3(void)
+void test_vec2_length()
 {
-	float x = 1.0f;
-	float y = 2.0f;
-	float z = 3.0f;
-
-	assert(min3(x, y, z) == 1.0f);
-	assert(min3(x, z, y) == 1.0f);
-	assert(min3(y, x, z) == 1.0f);
-	assert(min3(y, z, x) == 1.0f);
-	assert(min3(z, x, y) == 1.0f);
-	assert(min3(z, y, x) == 1.0f);
+	constexpr vec2 a(0.0f, 0.0f);
+	constexpr vec2 b(1.0f, 0.0f);
+	assert(length(a) == 0.0f);
+	assert(length(b) == 1.0f);
 }
 
 /**
- * @brief test_float_max3
+ * test_vector2_distance
  */
-void test_float_max3(void)
+void test_vec2_distance()
 {
-	float x = 1.0f;
-	float y = 2.0f;
-	float z = 3.0f;
-
-	assert(max3(x, y, z) == 3.0f);
-	assert(max3(x, z, y) == 3.0f);
-	assert(max3(y, x, z) == 3.0f);
-	assert(max3(y, z, x) == 3.0f);
-	assert(max3(z, x, y) == 3.0f);
-	assert(max3(z, y, x) == 3.0f);
+	constexpr vec2 a(0.0f, 0.0f);
+	constexpr vec2 b(1.0f, 0.0f);
+	assert(distance(a, b) == 1.0f);
 }
 
 /**
- * @brief test_float_med3
+ * test_vector2_dot
  */
-void test_float_med3(void)
+void test_vec2_dot()
 {
-	float x = 1.0f;
-	float y = 2.0f;
-	float z = 3.0f;
+	constexpr vec2 a(12.0f, 16.0f);
+	constexpr vec2 b(-12.0f, 9.0f);
+	assert(dot(a, b) == 0.0f);
+}
 
-	assert(med3(x, y, z) == 2.0f);
-	assert(med3(x, z, y) == 2.0f);
-	assert(med3(y, x, z) == 2.0f);
-	assert(med3(y, z, x) == 2.0f);
-	assert(med3(z, x, y) == 2.0f);
-	assert(med3(z, y, x) == 2.0f);
-
-	assert(med3(y, y, x) == 2.0f);
-	assert(med3(y, y, z) == 2.0f);
-	assert(med3(y, x, y) == 2.0f);
-	assert(med3(y, z, y) == 2.0f);
-	assert(med3(x, y, y) == 2.0f);
-	assert(med3(z, y, y) == 2.0f);
-
-	assert(med3(y, y, y) == 2.0f);
+/**
+ * test_vector2_normalize
+ */
+void test_vec2_normalize()
+{
+	constexpr vec2 a(2.0f, 0.0f);
+	assert(all(normalize(a) == vec2(1.0f, 0.0f)));
 }
 
 /**
@@ -68,9 +48,10 @@ void test_float_med3(void)
  */
 int main(void)
 {
-	test_float_min3();
-	test_float_max3();
-	test_float_med3();
+	test_vec2_length();
+	test_vec2_distance();
+	test_vec2_dot();
+	test_vec2_normalize();
 
 	return 0;
 }

@@ -8,7 +8,7 @@
  * TODO comment
  */
 template<typename T>
-static inline vector4<T> operator-(const vector4<T> & v)
+static inline constexpr vector4<T> operator-(const vector4<T> & v)
 {
    return(vector4<T>(-v.x, -v.y, -v.z, -v.w));
 }
@@ -17,7 +17,7 @@ static inline vector4<T> operator-(const vector4<T> & v)
  * TODO comment
  */
 template<typename T>
-static inline vector4<T> operator+(const vector4<T> & a, const vector4<T> & b)
+static inline constexpr vector4<T> operator+(const vector4<T> & a, const vector4<T> & b)
 {
 	return(vector4<T>((a.x + b.x), (a.y + b.y), (a.z + b.z), (a.w + b.w)));
 }
@@ -26,7 +26,7 @@ static inline vector4<T> operator+(const vector4<T> & a, const vector4<T> & b)
  * TODO comment
  */
 template<typename T>
-static inline vector4<T> operator-(const vector4<T> & a, const vector4<T> & b)
+static inline constexpr vector4<T> operator-(const vector4<T> & a, const vector4<T> & b)
 {
 	return(vector4<T>((a.x - b.x), (a.y - b.y), (a.z - b.z), (a.w - b.w)));
 }
@@ -35,7 +35,7 @@ static inline vector4<T> operator-(const vector4<T> & a, const vector4<T> & b)
  * TODO comment
  */
 template<typename T>
-static inline vector4<T> operator*(const vector4<T> & a, const vector4<T> & b)
+static inline constexpr vector4<T> operator*(const vector4<T> & a, const vector4<T> & b)
 {
 	return(vector4<T>((a.x * b.x), (a.y * b.y), (a.z * b.z), (a.w * b.w)));
 }
@@ -44,7 +44,7 @@ static inline vector4<T> operator*(const vector4<T> & a, const vector4<T> & b)
  * TODO comment
  */
 template<typename T>
-static inline vector4<T> operator/(const vector4<T> & a, const vector4<T> & b)
+static inline constexpr vector4<T> operator/(const vector4<T> & a, const vector4<T> & b)
 {
 	return(vector4<T>((a.x / b.x), (a.y / b.y), (a.z / b.z), (a.w / b.w)));
 }
@@ -53,7 +53,7 @@ static inline vector4<T> operator/(const vector4<T> & a, const vector4<T> & b)
  * TODO comment
  */
 template<typename T>
-static inline vector4<T> operator*(float s, const vector4<T> & v)
+static inline constexpr vector4<T> operator*(float s, const vector4<T> & v)
 {
 	return(vector4<T>((s * v.x), (s * v.y), (s * v.z), (s * v.w)));
 }
@@ -62,7 +62,7 @@ static inline vector4<T> operator*(float s, const vector4<T> & v)
  * TODO comment
  */
 template<typename T>
-static inline vector4<T> operator*(const vector4<T> & v, float s)
+static inline constexpr vector4<T> operator*(const vector4<T> & v, float s)
 {
 	return(vector4<T>((s * v.x), (s * v.y), (s * v.z), (s * v.w)));
 }
@@ -71,7 +71,7 @@ static inline vector4<T> operator*(const vector4<T> & v, float s)
  * TODO comment
  */
 template<typename T>
-static inline vector4<T> operator/(float s, const vector4<T> & v)
+static inline constexpr vector4<T> operator/(float s, const vector4<T> & v)
 {
 	return(vector4<T>((s / v.x), (s / v.y), (s / v.z), (s / v.w)));
 }
@@ -80,7 +80,7 @@ static inline vector4<T> operator/(float s, const vector4<T> & v)
  * TODO comment
  */
 template<typename T>
-static inline vector4<T> operator/(const vector4<T> & v, float s)
+static inline constexpr vector4<T> operator/(const vector4<T> & v, float s)
 {
 	return(vector4<T>((v.x / s), (v.y / s), (v.z / s), (v.w / s)));
 }
@@ -89,7 +89,7 @@ static inline vector4<T> operator/(const vector4<T> & v, float s)
  * TODO comment
  */
 template<typename T>
-static inline bvec4 operator==(const vector4<T> & a, const vector4<T> & b)
+static inline constexpr bvec4 operator==(const vector4<T> & a, const vector4<T> & b)
 {
 	return(bvec4((a.x == b.x), (a.y == b.y), (a.z == b.z), (a.w == b.w)));
 }
@@ -98,7 +98,7 @@ static inline bvec4 operator==(const vector4<T> & a, const vector4<T> & b)
  * TODO comment
  */
 template<typename T>
-static inline bvec4 operator>(const vector4<T> & a, const vector4<T> & b)
+static inline constexpr bvec4 operator>(const vector4<T> & a, const vector4<T> & b)
 {
 	return(bvec4((a.x > b.x), (a.y > b.y), (a.z > b.z), (a.w > b.w)));
 }
@@ -107,7 +107,7 @@ static inline bvec4 operator>(const vector4<T> & a, const vector4<T> & b)
  * TODO comment
  */
 template<typename T>
-static inline bvec4 operator>=(const vector4<T> & a, const vector4<T> & b)
+static inline constexpr bvec4 operator>=(const vector4<T> & a, const vector4<T> & b)
 {
 	return(bvec4((a.x >= b.x), (a.y >= b.y), (a.z >= b.z), (a.w >= b.w)));
 }
@@ -116,7 +116,7 @@ static inline bvec4 operator>=(const vector4<T> & a, const vector4<T> & b)
  * TODO comment
  */
 template<typename T>
-static inline bvec4 operator<(const vector4<T> & a, const vector4<T> & b)
+static inline constexpr bvec4 operator<(const vector4<T> & a, const vector4<T> & b)
 {
 	return(bvec4((a.x < b.x), (a.y < b.y), (a.z < b.z), (a.w < b.w)));
 }
@@ -125,7 +125,7 @@ static inline bvec4 operator<(const vector4<T> & a, const vector4<T> & b)
  * TODO comment
  */
 template<typename T>
-static inline bvec4 operator<=(const vector4<T> & a, const vector4<T> & b)
+static inline constexpr bvec4 operator<=(const vector4<T> & a, const vector4<T> & b)
 {
 	return(bvec4((a.x <= b.x), (a.y <= b.y), (a.z <= b.z), (a.w <= b.w)));
 }
@@ -134,7 +134,7 @@ static inline bvec4 operator<=(const vector4<T> & a, const vector4<T> & b)
  * TODO comment
  */
 template<typename T>
-static inline bvec4 operator!=(const vector4<T> & a, const vector4<T> & b)
+static inline constexpr bvec4 operator!=(const vector4<T> & a, const vector4<T> & b)
 {
 	return(bvec4((a.x != b.x), (a.y != b.y), (a.z != b.z), (a.w != b.w)));
 }
@@ -143,7 +143,7 @@ static inline bvec4 operator!=(const vector4<T> & a, const vector4<T> & b)
  * calculate the length of a vector
  */
 template<typename T>
-static inline T length(const vector4<T> & v)
+static inline constexpr T length(const vector4<T> & v)
 {
 	return(sqrt((v.x * v.x) + (v.y * v.y) + (v.z * v.z) + (v.w * v.w)));
 }
@@ -152,7 +152,7 @@ static inline T length(const vector4<T> & v)
  * calculate the distance between two points
  */
 template<typename T>
-static inline T distance(const vector4<T> & a, const vector4<T> & b)
+static inline constexpr T distance(const vector4<T> & a, const vector4<T> & b)
 {
 	return(length(b - a));
 }
@@ -161,7 +161,7 @@ static inline T distance(const vector4<T> & a, const vector4<T> & b)
  * calculate the dot product of two vectors
  */
 template<typename T>
-static inline T dot(const vector4<T> & a, const vector4<T> & b)
+static inline constexpr T dot(const vector4<T> & a, const vector4<T> & b)
 {
 	return((a.x * b.x) + (a.y * b.y) + (a.z * b.z) + (a.w * b.w));
 }
@@ -170,7 +170,7 @@ static inline T dot(const vector4<T> & a, const vector4<T> & b)
  * calculate the normalize product of two vectors
  */
 template<typename T>
-static inline vector4<T> normalize(const vector4<T> & v)
+static inline /*constexpr*/ vector4<T> normalize(const vector4<T> & v)
 {
 	T len = length(v);
 
@@ -186,7 +186,7 @@ static inline vector4<T> normalize(const vector4<T> & v)
  * calculate the reflection direction for an incident vector
  */
 template<typename T>
-static inline vector4<T> reflect(const vector4<T> & I, const vector4<T> & N)
+static inline constexpr vector4<T> reflect(const vector4<T> & I, const vector4<T> & N)
 {
 	return(I - 2 * dot(N, I) * N);
 }
@@ -195,7 +195,7 @@ static inline vector4<T> reflect(const vector4<T> & I, const vector4<T> & N)
  * calculate the refraction direction for an incident vector
  */
 template<typename T>
-static inline vector4<T> refract(const vector4<T> & I, const vector4<T> & N, float eta)
+static inline /*constexpr*/ vector4<T> refract(const vector4<T> & I, const vector4<T> & N, float eta)
 {
 	float k = 1 - eta * eta * (1 - dot(N, I) * dot(N, I));
 
@@ -211,7 +211,7 @@ static inline vector4<T> refract(const vector4<T> & I, const vector4<T> & N, flo
  * perform a component-wise equal-to comparison of two vectors
  */
 template<typename T>
-static bvec4 equal(const vector4<T> & a, const vector4<T> & b)
+static constexpr bvec4 equal(const vector4<T> & a, const vector4<T> & b)
 {
 	return(a == b);
 }
@@ -220,7 +220,7 @@ static bvec4 equal(const vector4<T> & a, const vector4<T> & b)
  * perform a component-wise greater-than comparison of two vectors
  */
 template<typename T>
-static bvec4 greaterThan(const vector4<T> & a, const vector4<T> & b)
+static constexpr bvec4 greaterThan(const vector4<T> & a, const vector4<T> & b)
 {
 	return(a > b);
 }
@@ -229,7 +229,7 @@ static bvec4 greaterThan(const vector4<T> & a, const vector4<T> & b)
  * perform a component-wise greater-than-or-equal comparison of two vectors
  */
 template<typename T>
-static bvec4 greaterThanEqual(const vector4<T> & a, const vector4<T> & b)
+static constexpr bvec4 greaterThanEqual(const vector4<T> & a, const vector4<T> & b)
 {
 	return(a >= b);
 }
@@ -238,7 +238,7 @@ static bvec4 greaterThanEqual(const vector4<T> & a, const vector4<T> & b)
  * perform a component-wise less-than comparison of two vectors
  */
 template<typename T>
-static bvec4 lessThan(const vector4<T> & a, const vector4<T> & b)
+static constexpr bvec4 lessThan(const vector4<T> & a, const vector4<T> & b)
 {
 	return(a < b);
 }
@@ -247,7 +247,7 @@ static bvec4 lessThan(const vector4<T> & a, const vector4<T> & b)
  * perform a component-wise less-than-or-equal comparison of two vectors
  */
 template<typename T>
-static bvec4 lessThanEqual(const vector4<T> & a, const vector4<T> & b)
+static constexpr bvec4 lessThanEqual(const vector4<T> & a, const vector4<T> & b)
 {
 	return(a <= b);
 }
@@ -256,7 +256,7 @@ static bvec4 lessThanEqual(const vector4<T> & a, const vector4<T> & b)
  * perform a component-wise not-equal-to comparison of two vectors
  */
 template<typename T>
-static bvec4 notEqual(const vector4<T> & a, const vector4<T> & b)
+static constexpr bvec4 notEqual(const vector4<T> & a, const vector4<T> & b)
 {
 	return(a != b);
 }

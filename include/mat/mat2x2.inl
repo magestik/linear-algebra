@@ -85,7 +85,7 @@ inline matrix2x2<T> inverse(const matrix2x2<T> & mat)
  * calculate the outer product of a pair of vectors
  */
 template<typename T>
-inline matrix2x2<T> outerProduct(const vec2 & c, const vec2 & r)
+inline matrix2x2<T> outerProduct(const vector2<T> & c, const vector2<T> & r)
 {
 	return(matrix2x2<T>(c.x * r.x, c.x * r.y,
 						c.y * r.x, c.y * r.y));

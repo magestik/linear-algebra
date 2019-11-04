@@ -1,5 +1,7 @@
 #pragma once
 
+#include "vec/vec2.h"
+
 template<typename T>
 struct matrix2x2
 {

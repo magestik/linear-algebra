@@ -17,7 +17,6 @@ inline bool all(const bvec4 & x)
  */
 inline bool any(const bvec4 & x)
 {
-	//return (x > 0);
 	return(x.bitset > 0);
 }
 

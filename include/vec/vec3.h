@@ -1,5 +1,7 @@
 #pragma once
 
+#include "bvec3.h"
+
 template<typename T>
 struct vector3
 {
@@ -16,18 +18,16 @@ struct vector3
 			};
 		};
 
-		struct { vector2<T> xy; /* T w; */};
-
-		//vector3<T> xyz;
+		struct { vector2<T> xy; };
 
 		float data [3];
 	};
 
-	explicit vector3 (void) : x(0), y(0), z(0) { }
+	explicit constexpr vector3 (void) : x(0), y(0), z(0) { }
 
-	explicit vector3 (T _x, T _y, T _z) : x(_x), y(_y), z(_z) { }
+	explicit constexpr vector3 (T _x, T _y, T _z) : x(_x), y(_y), z(_z) { }
 
-	explicit vector3 (const vector2<T> & v, T _z) : x(v.x), y(v.y), z(_z) { }
+	explicit constexpr vector3 (const vector2<T> & v, T _z) : x(v.x), y(v.y), z(_z) { }
 
 	T & operator [] (unsigned int index)
 	{

@@ -112,7 +112,7 @@ inline matrix3x3<T> inverse(const matrix3x3<T> & mat)
  * calculate the outer product of a pair of vectors
  */
 template<typename T>
-inline matrix3x3<T> outerProduct(const vec3 & c, const vec3 & r)
+inline matrix3x3<T> outerProduct(const vector3<T> & c, const vector3<T> & r)
 {
 	return(matrix3x3<T>(c.x * r.x, c.x * r.y, c.x * r.z,
 						c.y * r.x, c.y * r.y, c.y * r.z,

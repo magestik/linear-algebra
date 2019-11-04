@@ -8,16 +8,13 @@ struct bvec2
 
 public:
 
-	inline explicit bvec2 (void) : bitset(0) { }
+	explicit constexpr bvec2 (void) : bitset(0) { }
 
-	inline explicit bvec2 (int v) : bitset(v & 0x3) { }
+	explicit constexpr bvec2 (int v) : bitset(v & 0x3) { }
 
-	inline explicit bvec2 (bool b1, bool b2)
-	{
-		bitset = ((b1 ? 0x1 : 0) | (b2 ? 0x2 : 0));
-	}
+	explicit constexpr bvec2 (bool b1, bool b2) : bitset((b1 ? 0x1 : 0) | (b2 ? 0x2 : 0)) { }
 
-	bool operator[] (int index)
+	constexpr bool operator[] (int index) const
 	{
 		return bitset & (1 << index);
 	}
