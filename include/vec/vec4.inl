@@ -53,7 +53,7 @@ static inline constexpr vector4<T> operator/(const vector4<T> & a, const vector4
  * TODO comment
  */
 template<typename T>
-static inline constexpr vector4<T> operator*(float s, const vector4<T> & v)
+static inline constexpr vector4<T> operator*(T s, const vector4<T> & v)
 {
 	return(vector4<T>((s * v.x), (s * v.y), (s * v.z), (s * v.w)));
 }
@@ -62,7 +62,7 @@ static inline constexpr vector4<T> operator*(float s, const vector4<T> & v)
  * TODO comment
  */
 template<typename T>
-static inline constexpr vector4<T> operator*(const vector4<T> & v, float s)
+static inline constexpr vector4<T> operator*(const vector4<T> & v, T s)
 {
 	return(vector4<T>((s * v.x), (s * v.y), (s * v.z), (s * v.w)));
 }
@@ -71,7 +71,7 @@ static inline constexpr vector4<T> operator*(const vector4<T> & v, float s)
  * TODO comment
  */
 template<typename T>
-static inline constexpr vector4<T> operator/(float s, const vector4<T> & v)
+static inline constexpr vector4<T> operator/(T s, const vector4<T> & v)
 {
 	return(vector4<T>((s / v.x), (s / v.y), (s / v.z), (s / v.w)));
 }
@@ -80,7 +80,7 @@ static inline constexpr vector4<T> operator/(float s, const vector4<T> & v)
  * TODO comment
  */
 template<typename T>
-static inline constexpr vector4<T> operator/(const vector4<T> & v, float s)
+static inline constexpr vector4<T> operator/(const vector4<T> & v, T s)
 {
 	return(vector4<T>((v.x / s), (v.y / s), (v.z / s), (v.w / s)));
 }
@@ -195,9 +195,9 @@ static inline constexpr vector4<T> reflect(const vector4<T> & I, const vector4<T
  * calculate the refraction direction for an incident vector
  */
 template<typename T>
-static inline /*constexpr*/ vector4<T> refract(const vector4<T> & I, const vector4<T> & N, float eta)
+static inline /*constexpr*/ vector4<T> refract(const vector4<T> & I, const vector4<T> & N, T eta)
 {
-	float k = 1 - eta * eta * (1 - dot(N, I) * dot(N, I));
+	const T k = 1 - eta * eta * (1 - dot(N, I) * dot(N, I));
 
 	if (0 > k)
 	{

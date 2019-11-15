@@ -53,7 +53,7 @@ static inline constexpr vector2<T> operator/(const vector2<T> & a, const vector2
  * TODO comment
  */
 template<typename T>
-static inline constexpr vector2<T> operator*(float s, const vector2<T> & v)
+static inline constexpr vector2<T> operator*(T s, const vector2<T> & v)
 {
 	return(vector2<T>((s * v.x), (s * v.y)));
 }
@@ -62,7 +62,7 @@ static inline constexpr vector2<T> operator*(float s, const vector2<T> & v)
  * TODO comment
  */
 template<typename T>
-static inline constexpr vector2<T> operator*(const vector2<T> & v, float s)
+static inline constexpr vector2<T> operator*(const vector2<T> & v, T s)
 {
 	return(vector2<T>((v.x * s), (v.y * s)));
 }
@@ -71,7 +71,7 @@ static inline constexpr vector2<T> operator*(const vector2<T> & v, float s)
  * TODO comment
  */
 template<typename T>
-static inline constexpr vector2<T> operator/(float s, const vector2<T> & v)
+static inline constexpr vector2<T> operator/(T s, const vector2<T> & v)
 {
 	return(vector2<T>((s / v.x), (s / v.y)));
 }
@@ -80,7 +80,7 @@ static inline constexpr vector2<T> operator/(float s, const vector2<T> & v)
  * TODO comment
  */
 template<typename T>
-static inline constexpr vector2<T> operator/(const vector2<T> & v, float s)
+static inline constexpr vector2<T> operator/(const vector2<T> & v, T s)
 {
 	return(vector2<T>((v.x / s), (v.y / s)));
 }
@@ -143,7 +143,7 @@ static inline constexpr bvec2 operator!=(const vector2<T> & a, const vector2<T> 
  * calculate the length of a vector
  */
 template<typename T>
-static inline constexpr float length(const vector2<T> & v)
+static inline constexpr T length(const vector2<T> & v)
 {
 	return(sqrt((v.x * v.x) + (v.y * v.y)));
 }
@@ -152,7 +152,7 @@ static inline constexpr float length(const vector2<T> & v)
  * calculate the distance between two points
  */
 template<typename T>
-static inline constexpr float distance(const vector2<T> & a, const vector2<T> & b)
+static inline constexpr T distance(const vector2<T> & a, const vector2<T> & b)
 {
 	return(length(b - a));
 }
@@ -161,7 +161,7 @@ static inline constexpr float distance(const vector2<T> & a, const vector2<T> & 
  * calculate the dot product of two vectors
  */
 template<typename T>
-static inline constexpr float dot(const vector2<T> & a, const vector2<T> & b)
+static inline constexpr T dot(const vector2<T> & a, const vector2<T> & b)
 {
 	return((a.x * b.x) + (a.y * b.y));
 }
@@ -195,9 +195,9 @@ static inline constexpr vector2<T> reflect(const vector2<T> & I, const vector2<T
  * calculate the refraction direction for an incident vector
  */
 template<typename T>
-static inline /*constexpr*/ vector2<T> refract(const vector2<T> & I, const vector2<T> & N, float eta)
+static inline /*constexpr*/ vector2<T> refract(const vector2<T> & I, const vector2<T> & N, T eta)
 {
-	float k = 1 - eta * eta * (1 - dot(N, I) * dot(N, I));
+	const T k = 1 - eta * eta * (1 - dot(N, I) * dot(N, I));
 
 	if (0 > k)
 	{
