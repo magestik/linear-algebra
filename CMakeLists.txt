@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.1)
 project(linear-algebra CXX)
 
 enable_testing()
+include(CTest)
 
 add_library(linear-algebra INTERFACE)
 
