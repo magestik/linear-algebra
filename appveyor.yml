@@ -3,5 +3,5 @@ image: Visual Studio 2015
 matrix:
     fast_finish: true
 
-build_script: ctest -S ci/appveyor.cmake
+build_script: ctest -S ci/appveyor.cmake -C Debug
 
