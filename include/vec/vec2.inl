@@ -174,7 +174,7 @@ static inline /*constexpr*/ vector2<T> normalize(const vector2<T> & v)
 {
 	T len = length(v);
 
-	if (!(bool)len)
+	if (len == 0.0f)
 	{
 		return vector2<T>(0, 0);
 	}
