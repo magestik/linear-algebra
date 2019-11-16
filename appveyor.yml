@@ -18,5 +18,5 @@ install:
   - cmd: cmake --build . --config Release --target install
   - cmd: cd %APPVEYOR_BUILD_FOLDER%
 
-build_script: ctest -S ci/appveyor.cmake -C Debug
+build_script: ctest -S ci/appveyor.cmake -C %CONFIGURATION% -VV
 
