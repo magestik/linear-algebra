@@ -5,8 +5,7 @@
 template<typename T>
 struct matrix2x2
 {
-
-	inline explicit matrix2x2 (void)
+	explicit matrix2x2 (void)
 	{
 		m[0] = 0.0f;
 		m[1] = 0.0f;
@@ -14,7 +13,7 @@ struct matrix2x2
 		m[3] = 0.0f;
 	}
 
-	inline explicit matrix2x2 (T f)
+	explicit matrix2x2 (T f)
 	{
 		m[0] = f;
 		m[1] = 0.0f;
@@ -22,7 +21,7 @@ struct matrix2x2
 		m[3] = f;
 	}
 
-	inline explicit matrix2x2 (T a, T b, T c, T d)
+	explicit matrix2x2 (T a, T b, T c, T d)
 	{
 		m[0] = a;
 		m[1] = b;
@@ -30,7 +29,7 @@ struct matrix2x2
 		m[3] = d;
 	}
 
-	inline explicit matrix2x2 (const vector2<T> & v1, const vector2<T> & v2)
+	explicit matrix2x2 (const vector2<T> & v1, const vector2<T> & v2)
 	{
 		m[0] = v1.x;
 		m[1] = v1.y;

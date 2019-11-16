@@ -5,7 +5,6 @@
 template<typename T>
 struct matrix3x3
 {
-
 	explicit matrix3x3 (void)
 	{
 		m[0] = 0.0f;
