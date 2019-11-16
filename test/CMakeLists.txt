@@ -12,7 +12,7 @@ endif (MSVC)
 option(WITH_COVERAGE OFF)
 
 if (WITH_COVERAGE)
-        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage")
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage -fkeep-inline-functions -fkeep-static-functions")
 endif()
 
 add_executable(test_linear_algebra_mat matrix.cpp)
