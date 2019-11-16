@@ -3,18 +3,21 @@
 #include "bvec2.h"
 
 template<typename T>
-struct vector2
+union vector2
 {
-	union
-	{
-		struct { T x, y; };
+	struct { T x, y; };
 
-		float data [2];
-	};
+	//
+	// Constructors
+	//
 
 	explicit constexpr vector2 (void) : x(0), y(0) { }
 
 	explicit constexpr vector2 (T _x, T _y) : x(_x), y(_y) { }
+
+	//
+	// Accessors
+	//
 
 	T & operator [] (unsigned int index)
 	{
@@ -25,6 +28,10 @@ struct vector2
 	{
 		return(data[index]);
 	}
+
+private:
+
+	float data [2];
 };
 
 #include "vec2.inl"

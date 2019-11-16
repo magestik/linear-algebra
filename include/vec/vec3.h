@@ -3,31 +3,34 @@
 #include "bvec3.h"
 
 template<typename T>
-struct vector3
+union vector3
 {
-	union
+	struct
 	{
-		struct
+		T x;
+
+		union
 		{
-			T x;
-
-			union
-			{
-				struct { T y, z; };
-				struct { vector2<T> yz; };
-			};
+			struct { T y, z; };
+			struct { vector2<T> yz; };
 		};
-
-		struct { vector2<T> xy; };
-
-		float data [3];
 	};
+
+	struct { vector2<T> xy; };
+
+	//
+	// Constructors
+	//
 
 	explicit constexpr vector3 (void) : x(0), y(0), z(0) { }
 
 	explicit constexpr vector3 (T _x, T _y, T _z) : x(_x), y(_y), z(_z) { }
 
 	explicit constexpr vector3 (const vector2<T> & v, T _z) : x(v.x), y(v.y), z(_z) { }
+
+	//
+	// Accessors
+	//
 
 	T & operator [] (unsigned int index)
 	{
@@ -38,6 +41,10 @@ struct vector3
 	{
 		return(data[index]);
 	}
+
+private:
+
+	float data [3];
 };
 
 #include "vec3.inl"

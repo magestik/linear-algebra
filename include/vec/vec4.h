@@ -3,27 +3,26 @@
 #include "bvec4.h"
 
 template<typename T>
-struct vector4
+union vector4
 {
-	union
+	struct
 	{
-		struct
+		T x;
+
+		union
 		{
-			T x;
-
-			union
-			{
-				struct { T y, z, w; };
-				struct { vector2<T> yz; };
-				struct { vector3<T> yzw; };
-			};
+			struct { T y, z, w; };
+			struct { vector2<T> yz; };
+			struct { vector3<T> yzw; };
 		};
-
-		struct { vector2<T> xy; vector2<T> zw; };
-		struct { vector3<T> xyz; };
-
-		float data [4];
 	};
+
+	struct { vector2<T> xy; vector2<T> zw; };
+	struct { vector3<T> xyz; };
+
+	//
+	// Constructors
+	//
 
 	explicit constexpr vector4 (void) : x(0), y(0), z(0), w(0) { }
 
@@ -35,6 +34,10 @@ struct vector4
 
 	explicit constexpr vector4 (const vector2<T> & v1, const vector2<T> & v2) : x(v1.x), y(v1.y), z(v2.x), w(v2.y) { }
 
+	//
+	// Accessors
+	//
+
 	T & operator [] (unsigned int index)
 	{
 		return(data[index]);
@@ -44,6 +47,10 @@ struct vector4
 	{
 		return(data[index]);
 	}
+
+private:
+
+	float data [4];
 };
 
 #include "vec4.inl"
