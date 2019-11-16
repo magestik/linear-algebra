@@ -2,6 +2,9 @@ cmake_minimum_required(VERSION 3.10...3.14)
 
 if (MSVC)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /W3 /WX")
+    if(MSVC_VERSION EQUAL 1916)
+	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /wd4789") # workaround
+    endif()
     if(MSVC_VERSION GREATER 1900)
 	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /permissive-")
     endif()
