@@ -1,7 +1,5 @@
 cmake_minimum_required(VERSION 3.10...3.14)
 
-include(CheckCXXCompilerFlag)
-
 if (MSVC)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /W3 /WX")
     if(MSVC_VERSION GREATER 1900)
@@ -23,13 +21,16 @@ add_executable(test_linear_algebra_mat matrix.cpp)
 target_link_libraries(test_linear_algebra_mat PRIVATE linear-algebra)
 target_link_libraries(test_linear_algebra_mat PRIVATE GTest::GTest GTest::Main)
 gtest_discover_tests(test_linear_algebra_mat)
+set_property(TARGET test_linear_algebra_mat PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 
 add_executable(test_linear_algebra_vec vector.cpp)
 target_link_libraries(test_linear_algebra_vec PRIVATE linear-algebra)
 target_link_libraries(test_linear_algebra_vec PRIVATE GTest::GTest GTest::Main)
 gtest_discover_tests(test_linear_algebra_vec)
+set_property(TARGET test_linear_algebra_vec PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 
 add_executable(test_linear_algebra_float float.cpp)
 target_link_libraries(test_linear_algebra_float PRIVATE linear-algebra)
 target_link_libraries(test_linear_algebra_float PRIVATE GTest::GTest GTest::Main)
 gtest_discover_tests(test_linear_algebra_float)
+set_property(TARGET test_linear_algebra_float PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
