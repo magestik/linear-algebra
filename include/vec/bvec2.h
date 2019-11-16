@@ -16,7 +16,7 @@ public:
 
 	constexpr bool operator[] (int index) const
 	{
-		return bitset & (1 << index);
+		return (bitset & (1 << index)) != 0;
 	}
 
 private:
