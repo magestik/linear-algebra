@@ -1,11 +1,14 @@
 language: cpp
 
+env:
+    - GTest_ROOT=$HOME/googletest
+
 before_install:
   - git clone https://github.com/google/googletest.git
   - cd googletest
   - mkdir build
   - cd build
-  - cmake ..
+  - cmake -DBUILD_GMOCK=FALSE -DCMAKE_INSTALL_PREFIX=$GTest_ROOT ..
   - cmake --build .
   - cmake --build . --target install
 
