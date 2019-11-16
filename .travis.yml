@@ -3,6 +3,7 @@ language: cpp
 addons:
   apt:
     packages:
+    - gtest
     - libgtest-dev
 
 matrix:
