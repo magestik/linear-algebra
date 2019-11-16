@@ -12,10 +12,10 @@ install:
   - cmd: mkdir build
   - cmd: cd build
   - cmd: cmake -DBUILD_GMOCK=FALSE -DCMAKE_INSTALL_PREFIX=%GTEST_ROOT% ..
-  - cmd: cmake --build . -C Debug
-  - cmd: cmake --build . -C Debug --target install
-  - cmd: cmake --build . -C Release
-  - cmd: cmake --build . -C Release --target install
+  - cmd: cmake --build . --config Debug
+  - cmd: cmake --build . --config Debug --target install
+  - cmd: cmake --build . --config Release
+  - cmd: cmake --build . --config Release --target install
   - cmd: cd %APPVEYOR_BUILD_FOLDER%
 
 build_script: ctest -S ci/appveyor.cmake -C Debug
