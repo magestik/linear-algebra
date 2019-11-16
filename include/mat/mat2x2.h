@@ -5,52 +5,55 @@
 template<typename T>
 struct matrix2x2
 {
-	explicit matrix2x2 (void)
+	constexpr matrix2x2 (void) : m11(0.0f), m12(0.0f), m21(0.0f), m22(0.0f)
 	{
-		m[0] = 0.0f;
-		m[1] = 0.0f;
-		m[2] = 0.0f;
-		m[3] = 0.0f;
+		// ...
 	}
 
-	explicit matrix2x2 (T f)
+	explicit constexpr matrix2x2 (T f) : m11(f), m12(0.0f), m21(0.0f), m22(f)
 	{
-		m[0] = f;
-		m[1] = 0.0f;
-		m[2] = 0.0f;
-		m[3] = f;
+		// ...
 	}
 
-	explicit matrix2x2 (T a, T b, T c, T d)
+	explicit constexpr matrix2x2 (T a, T b, T c, T d) : m11(a), m12(b), m21(c), m22(d)
 	{
-		m[0] = a;
-		m[1] = b;
-		m[2] = c;
-		m[3] = d;
+		// ...
 	}
 
-	explicit matrix2x2 (const vector2<T> & v1, const vector2<T> & v2)
+	explicit constexpr matrix2x2 (const vector2<T> & v1, const vector2<T> & v2) : m11(v1.x), m12(v1.y), m21(v2.x), m22(v2.y)
 	{
-		m[0] = v1.x;
-		m[1] = v1.y;
-		m[2] = v2.x;
-		m[3] = v2.y;
+		// ...
 	}
 
 	inline vector2<T> & operator [] (unsigned int row)
 	{
-		return *(((vector2<T>*)&m) + row);
+		return v[row];
 	}
 
 	inline const vector2<T> & operator [] (unsigned int row) const
 	{
-		return *(((vector2<T>*)&m) + row);
+		return v[row];
 	}
 
 private:
 
-	T m [4]; // row-major
-
+	union
+	{
+		struct
+		{
+			T m11;
+			T m12;
+			T m21;
+			T m22;
+		};
+		struct
+		{
+			vector2<T> v1;
+			vector2<T> v2;
+		};
+		vector2<T> v [2];
+		T m [4]; // row-major
+	};
 };
 
 #include "mat2x2.inl"

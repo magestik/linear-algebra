@@ -7,7 +7,7 @@
  */
 TEST(mat3x3, determinant)
 {
-	const mat3x3 m(6.0f, 1.0f, 1.0f, 4.0f, -2.0f, 5.0f, 2.0f, 8.0f, 7.0f);
+	constexpr mat3x3 m(6.0f, 1.0f, 1.0f, 4.0f, -2.0f, 5.0f, 2.0f, 8.0f, 7.0f);
 
 	const float d = determinant(m);
 
@@ -22,7 +22,7 @@ TEST(mat3x3, determinant)
  */
 TEST(mat3x3, inverse)
 {
-	const mat3x3 m(7.0f, 2.0f, 1.0f, 0.0f, 3.0f, -1.0f, -3.0f, 4.0f, -2.0f);
+	constexpr mat3x3 m(7.0f, 2.0f, 1.0f, 0.0f, 3.0f, -1.0f, -3.0f, 4.0f, -2.0f);
 
 	const mat3x3 i = inverse(m);
 

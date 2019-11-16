@@ -8,7 +8,7 @@
  * TODO comment
  */
 template<typename T>
-inline matrix3x3<T> operator*(const matrix3x3<T> & matA, const matrix3x3<T> & matB)
+inline constexpr matrix3x3<T> operator*(const matrix3x3<T> & matA, const matrix3x3<T> & matB)
 {
 	return(matrix3x3<T>((matA[0][0]*matB[0][0]) + (matA[0][1]*matB[1][0]) + (matA[0][2]*matB[2][0]),
 						(matA[0][0]*matB[0][1]) + (matA[0][1]*matB[1][1]) + (matA[0][2]*matB[2][1]),
@@ -27,7 +27,7 @@ inline matrix3x3<T> operator*(const matrix3x3<T> & matA, const matrix3x3<T> & ma
  * M * v
  */
 template<typename T>
-vector3<T> operator*(const matrix3x3<T> & mat, const vector3<T> & vec)
+inline constexpr vector3<T> operator*(const matrix3x3<T> & mat, const vector3<T> & vec)
 {
 	return(vector3<T>(mat[0][0] * vec.x + mat[0][1] * vec.y + mat[0][2] * vec.z,
 					  mat[1][0] * vec.x + mat[1][1] * vec.y + mat[1][2] * vec.z,
@@ -38,7 +38,7 @@ vector3<T> operator*(const matrix3x3<T> & mat, const vector3<T> & vec)
  * transpose(M) * v
  */
 template<typename T>
-vector3<T> operator*(const vector3<T> & vec, const matrix3x3<T> & mat)
+inline constexpr vector3<T> operator*(const vector3<T> & vec, const matrix3x3<T> & mat)
 {
 	return(vector3<T>(vec.x * mat[0][0] + vec.y * mat[0][1] + vec.z * mat[0][2],
 					  vec.x * mat[1][0] + vec.y * mat[1][1] + vec.z * mat[1][2],
@@ -49,7 +49,7 @@ vector3<T> operator*(const vector3<T> & vec, const matrix3x3<T> & mat)
  * TODO comment
  */
 template<typename T>
-inline matrix3x3<T> operator*(T s, const matrix3x3<T> & mat)
+inline constexpr matrix3x3<T> operator*(T s, const matrix3x3<T> & mat)
 {
 	return(matrix3x3<T>(s * mat[0], s * mat[1], s * mat[2]));
 }
@@ -58,7 +58,7 @@ inline matrix3x3<T> operator*(T s, const matrix3x3<T> & mat)
  * TODO comment
  */
 template<typename T>
-inline matrix3x3<T> operator*(const matrix3x3<T> & mat, T s)
+inline constexpr matrix3x3<T> operator*(const matrix3x3<T> & mat, T s)
 {
 	return(matrix3x3<T>(mat[0] * s, mat[1] * s, mat[2] * s));
 }
@@ -67,7 +67,7 @@ inline matrix3x3<T> operator*(const matrix3x3<T> & mat, T s)
  * TODO comment
  */
 template<typename T>
-inline matrix3x3<T> operator/(const matrix3x3<T> & mat, T s)
+inline constexpr matrix3x3<T> operator/(const matrix3x3<T> & mat, T s)
 {
 	return(matrix3x3<T>(mat[0] / s, mat[1] / s, mat[2] / s));
 }
@@ -76,7 +76,7 @@ inline matrix3x3<T> operator/(const matrix3x3<T> & mat, T s)
  * calculate the determinant of a matrix
  */
 template<typename T>
-inline T determinant(const matrix3x3<T> & mat)
+inline constexpr T determinant(const matrix3x3<T> & mat)
 {
 	return((mat[0][0] * ((mat[1][1] * mat[2][2]) - (mat[2][1] * mat[1][2])))
 		 - (mat[1][0] * ((mat[0][1] * mat[2][2]) - (mat[2][1] * mat[0][2])))
@@ -112,7 +112,7 @@ inline matrix3x3<T> inverse(const matrix3x3<T> & mat)
  * calculate the outer product of a pair of vectors
  */
 template<typename T>
-inline matrix3x3<T> outerProduct(const vector3<T> & c, const vector3<T> & r)
+inline constexpr matrix3x3<T> outerProduct(const vector3<T> & c, const vector3<T> & r)
 {
 	return(matrix3x3<T>(c.x * r.x, c.x * r.y, c.x * r.z,
 						c.y * r.x, c.y * r.y, c.y * r.z,
@@ -123,7 +123,7 @@ inline matrix3x3<T> outerProduct(const vector3<T> & c, const vector3<T> & r)
  * calculate the transpose of a matrix
  */
 template<typename T>
-inline matrix3x3<T> transpose(const matrix3x3<T> & mat)
+inline constexpr matrix3x3<T> transpose(const matrix3x3<T> & mat)
 {
 	return(matrix3x3<T>(mat[0][0], mat[1][0], mat[2][0],
 						mat[0][1], mat[1][1], mat[2][1],
@@ -134,7 +134,7 @@ inline matrix3x3<T> transpose(const matrix3x3<T> & mat)
  * perform a component-wise multiplication of two matrices
  */
 template<typename T>
-inline matrix3x3<T> matrixCompMult(const matrix3x3<T> & matA, const matrix3x3<T> & matB)
+inline constexpr matrix3x3<T> matrixCompMult(const matrix3x3<T> & matA, const matrix3x3<T> & matB)
 {
 	return(matrix3x3<T>((matA[0]*matB[0]),
 						(matA[1]*matB[1]),

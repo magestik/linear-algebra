@@ -7,10 +7,10 @@
  */
 TEST(mat4x4, determinant)
 {
-	const mat4x4 m (3.0f, 2.0f, -1.0f, 4.0f,
-					2.0f, 1.0f, 5.0f, 7.0f,
-					0.0f, 5.0f, 2.0f, -6.0f,
-					-1.0f, 2.0f, 1.0f, 0.0f);
+	constexpr mat4x4 m (3.0f, 2.0f, -1.0f, 4.0f,
+						2.0f, 1.0f, 5.0f, 7.0f,
+						0.0f, 5.0f, 2.0f, -6.0f,
+					   -1.0f, 2.0f, 1.0f, 0.0f);
 
 	const float d = determinant(m);
 
@@ -25,10 +25,10 @@ TEST(mat4x4, determinant)
  */
 TEST(mat4x4, inverse)
 {
-	const mat4x4 m (1.0f, 0.0f, 0.0f, 1.0f,
-					0.0f, 2.0f, 1.0f, 2.0f,
-					2.0f, 1.0f, 0.0f, 1.0f,
-					2.0f, 0.0f, 1.0f, 4.0f);
+	constexpr mat4x4 m (1.0f, 0.0f, 0.0f, 1.0f,
+						0.0f, 2.0f, 1.0f, 2.0f,
+						2.0f, 1.0f, 0.0f, 1.0f,
+						2.0f, 0.0f, 1.0f, 4.0f);
 
 	const mat4x4 i = inverse(m);
 

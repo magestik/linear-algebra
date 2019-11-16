@@ -8,7 +8,7 @@
  * TODO comment
  */
 template<typename T>
-inline matrix4x4<T> operator*(const matrix4x4<T> & matA, const matrix4x4<T> & matB)
+inline constexpr matrix4x4<T> operator*(const matrix4x4<T> & matA, const matrix4x4<T> & matB)
 {
 	return(matrix4x4<T>((matA[0][0]*matB[0][0]) + (matA[0][1]*matB[1][0]) + (matA[0][2]*matB[2][0]) + (matA[0][3]*matB[3][0]),
 						(matA[0][0]*matB[0][1]) + (matA[0][1]*matB[1][1]) + (matA[0][2]*matB[2][1]) + (matA[0][3]*matB[3][1]),
@@ -35,7 +35,7 @@ inline matrix4x4<T> operator*(const matrix4x4<T> & matA, const matrix4x4<T> & ma
  * M * v
  */
 template<typename T>
-vector4<T> operator*(const matrix4x4<T> & mat, const vector4<T> & vec)
+inline constexpr vector4<T> operator*(const matrix4x4<T> & mat, const vector4<T> & vec)
 {
 	return(vector4<T>(mat[0][0] * vec.x + mat[0][1] * vec.y + mat[0][2] * vec.z + mat[0][3] * vec.w,
 					  mat[1][0] * vec.x + mat[1][1] * vec.y + mat[1][2] * vec.z + mat[1][3] * vec.w,
@@ -47,7 +47,7 @@ vector4<T> operator*(const matrix4x4<T> & mat, const vector4<T> & vec)
  * transpose(M) * v
  */
 template<typename T>
-vector4<T> operator*(const vector4<T> & vec, const matrix4x4<T> & mat)
+inline constexpr vector4<T> operator*(const vector4<T> & vec, const matrix4x4<T> & mat)
 {
 	return(vector4<T>(vec.x * mat[0][0] + vec.y * mat[0][1] + vec.z * mat[0][2] + vec.w * mat[0][3],
 					  vec.x * mat[1][0] + vec.y * mat[1][1] + vec.z * mat[1][2] + vec.w * mat[1][3],
@@ -59,7 +59,7 @@ vector4<T> operator*(const vector4<T> & vec, const matrix4x4<T> & mat)
  * TODO comment
  */
 template<typename T>
-inline matrix4x4<T> operator*(T s, const matrix4x4<T> & mat)
+inline constexpr matrix4x4<T> operator*(T s, const matrix4x4<T> & mat)
 {
 	return(matrix4x4<T>(s * mat[0], s * mat[1], s * mat[2], s * mat[3]));
 }
@@ -68,7 +68,7 @@ inline matrix4x4<T> operator*(T s, const matrix4x4<T> & mat)
  * TODO comment
  */
 template<typename T>
-inline matrix4x4<T> operator*(const matrix4x4<T> & mat, T s)
+inline constexpr matrix4x4<T> operator*(const matrix4x4<T> & mat, T s)
 {
 	return(matrix4x4<T>(mat[0] * s, mat[1] * s, mat[2] * s, mat[3] * s));
 }
@@ -77,7 +77,7 @@ inline matrix4x4<T> operator*(const matrix4x4<T> & mat, T s)
  * TODO comment
  */
 template<typename T>
-inline matrix4x4<T> operator/(const matrix4x4<T> & mat, T s)
+inline constexpr matrix4x4<T> operator/(const matrix4x4<T> & mat, T s)
 {
 	return(matrix4x4<T>(mat[0] / s, mat[1] / s, mat[2] / s, mat[3] / s));
 }
@@ -179,7 +179,7 @@ inline matrix4x4<T> inverse(const matrix4x4<T> & mat)
  * calculate the outer product of a pair of vectors
  */
 template<typename T>
-inline matrix4x4<T> outerProduct(const vector4<T> & c, const vector4<T> & r)
+inline constexpr matrix4x4<T> outerProduct(const vector4<T> & c, const vector4<T> & r)
 {
 	return(matrix4x4<T>(c.x * r.x, c.x * r.y, c.x * r.z, c.x * r.w,
 				  c.y * r.x, c.y * r.y, c.y * r.z, c.y * r.w,
@@ -191,7 +191,7 @@ inline matrix4x4<T> outerProduct(const vector4<T> & c, const vector4<T> & r)
  * calculate the transpose of a matrix
  */
 template<typename T>
-inline matrix4x4<T> transpose(const matrix4x4<T> & mat)
+inline constexpr matrix4x4<T> transpose(const matrix4x4<T> & mat)
 {
 	return(matrix4x4<T>(mat[0][0], mat[1][0], mat[2][0], mat[3][0],
 						mat[0][1], mat[1][1], mat[2][1], mat[3][1],
@@ -203,7 +203,7 @@ inline matrix4x4<T> transpose(const matrix4x4<T> & mat)
  * perform a component-wise multiplication of two matrices
  */
 template<typename T>
-inline matrix4x4<T> matrixCompMult(const matrix4x4<T> & matA, const matrix4x4<T> & matB)
+inline constexpr matrix4x4<T> matrixCompMult(const matrix4x4<T> & matA, const matrix4x4<T> & matB)
 {
 	return(matrix4x4<T>((matA[0]*matB[0]), (matA[1]*matB[1]), (matA[2]*matB[2]), (matA[3]*matB[3])));
 }

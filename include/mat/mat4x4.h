@@ -5,100 +5,76 @@
 template<typename T>
 struct matrix4x4
 {
-	explicit matrix4x4 (void)
+	constexpr matrix4x4 (void)
+		: v1(0.0f, 0.0f, 0.0f, 0.0f), v2(0.0f, 0.0f, 0.0f, 0.0f),
+		  v3(0.0f, 0.0f, 0.0f, 0.0f), v4(0.0f, 0.0f, 0.0f, 0.0f)
 	{
-		m[ 0] = 0.0f;
-		m[ 1] = 0.0f;
-		m[ 2] = 0.0f;
-		m[ 3] = 0.0f;
-		m[ 4] = 0.0f;
-		m[ 5] = 0.0f;
-		m[ 6] = 0.0f;
-		m[ 7] = 0.0f;
-		m[ 8] = 0.0f;
-		m[ 9] = 0.0f;
-		m[10] = 0.0f;
-		m[11] = 0.0f;
-		m[12] = 0.0f;
-		m[13] = 0.0f;
-		m[14] = 0.0f;
-		m[15] = 0.0f;
+		// ...
 	}
 
-	explicit matrix4x4 (T f)
+	explicit constexpr matrix4x4 (T f)
+		: v1(f, 0.0f, 0.0f, 0.0f), v2(0.0f, f, 0.0f, 0.0f),
+		  v3(0.0f, 0.0f, f, 0.0f), v4(0.0f, 0.0f, 0.0f, f)
 	{
-		m[ 0] = f;
-		m[ 1] = 0.0f;
-		m[ 2] = 0.0f;
-		m[ 3] = 0.0f;
-		m[ 4] = 0.0f;
-		m[ 5] = f;
-		m[ 6] = 0.0f;
-		m[ 7] = 0.0f;
-		m[ 8] = 0.0f;
-		m[ 9] = 0.0f;
-		m[10] = f;
-		m[11] = 0.0f;
-		m[12] = 0.0f;
-		m[13] = 0.0f;
-		m[14] = 0.0f;
-		m[15] = f;
+		// ...
 	}
 
-	explicit matrix4x4 (T a, T b, T c, T d, T e, T f, T g, T h, T i, T j, T k, T l, T n, T o, T p, T q)
+	explicit constexpr matrix4x4 (T a, T b, T c, T d, T e, T f, T g, T h, T i, T j, T k, T l, T n, T o, T p, T q)
+		: v1(a, b, c, d), v2(e, f, g, h),
+		  v3(i, j, k, l), v4(n, o, p, q)
 	{
-		m[ 0] = a;
-		m[ 1] = b;
-		m[ 2] = c;
-		m[ 3] = d;
-		m[ 4] = e;
-		m[ 5] = f;
-		m[ 6] = g;
-		m[ 7] = h;
-		m[ 8] = i;
-		m[ 9] = j;
-		m[10] = k;
-		m[11] = l;
-		m[12] = n;
-		m[13] = o;
-		m[14] = p;
-		m[15] = q;
+		// ...
 	}
 
-	explicit matrix4x4 (const vector4<T> & v1, const vector4<T> & v2, const vector4<T> & v3, const vector4<T> & v4)
+	explicit constexpr matrix4x4 (const vector4<T> & v1_, const vector4<T> & v2_, const vector4<T> & v3_, const vector4<T> & v4_)
+		: v1(v1_), v2(v2_), v3(v3_), v4(v4_)
 	{
-		m[ 0] = v1.x;
-		m[ 1] = v1.y;
-		m[ 2] = v1.z;
-		m[ 3] = v1.w;
-		m[ 4] = v2.x;
-		m[ 5] = v2.y;
-		m[ 6] = v2.z;
-		m[ 7] = v2.w;
-		m[ 8] = v3.x;
-		m[ 9] = v3.y;
-		m[10] = v3.z;
-		m[11] = v3.w;
-		m[12] = v4.x;
-		m[13] = v4.y;
-		m[14] = v4.z;
-		m[15] = v4.w;
+		// ...
 	}
 
 	vector4<T> & operator [] (unsigned int row)
 	{
-		return *(((vector4<T>*)&m) + row);
+		return v[row];
 	}
 
 	const vector4<T> & operator [] (unsigned int row) const
 	{
-		return *(((vector4<T>*)&m) + row);
+		return v[row];
 	}
 
 private:
 
-	T m [16]; // row-major
-
+	union
+	{
+		struct
+		{
+			T m11;
+			T m12;
+			T m13;
+			T m14;
+			T m21;
+			T m22;
+			T m23;
+			T m24;
+			T m31;
+			T m32;
+			T m33;
+			T m34;
+			T m41;
+			T m42;
+			T m43;
+			T m44;
+		};
+		struct
+		{
+			vector4<T> v1;
+			vector4<T> v2;
+			vector4<T> v3;
+			vector4<T> v4;
+		};
+		vector4<T> v [4];
+		T m [16]; // row-major
+	};
 };
 
 #include "mat4x4.inl"
