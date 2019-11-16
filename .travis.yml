@@ -1,5 +1,10 @@
 language: cpp
 
+addons:
+  apt:
+    packages:
+    - libgtest-dev
+
 matrix:
   include:
   - os: linux
