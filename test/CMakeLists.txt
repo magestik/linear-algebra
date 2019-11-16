@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.1)
+cmake_minimum_required(VERSION 3.10)
 
 include(CheckCXXCompilerFlag)
 
@@ -15,7 +15,7 @@ option(WITH_COVERAGE OFF)
 
 if (WITH_COVERAGE)
 
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage -fkeep-inline-functions ")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage")
 
     check_cxx_compiler_flag(-fkeep-inline-functions HAVE_KEEP_INLINE_FUNCTIONS)
     if (HAVE_KEEP_INLINE_FUNCTIONS)
@@ -29,15 +29,19 @@ if (WITH_COVERAGE)
 
 endif()
 
+find_package(GTest REQUIRED)
+
 add_executable(test_linear_algebra_mat matrix.cpp)
 target_link_libraries(test_linear_algebra_mat PRIVATE linear-algebra)
+target_link_libraries(test_linear_algebra_mat PRIVATE GTest::GTest GTest::Main)
+gtest_discover_tests(test_linear_algebra_mat)
 
 add_executable(test_linear_algebra_vec vector.cpp)
 target_link_libraries(test_linear_algebra_vec PRIVATE linear-algebra)
+target_link_libraries(test_linear_algebra_vec PRIVATE GTest::GTest GTest::Main)
+gtest_discover_tests(test_linear_algebra_mat)
 
 add_executable(test_linear_algebra_float float.cpp)
 target_link_libraries(test_linear_algebra_float PRIVATE linear-algebra)
-
-add_test(NAME linear_algebra_mat COMMAND $<TARGET_FILE:test_linear_algebra_mat>)
-add_test(NAME linear_algebra_vec COMMAND $<TARGET_FILE:test_linear_algebra_vec>)
-add_test(NAME linear_algebra_float COMMAND $<TARGET_FILE:test_linear_algebra_float>)
+target_link_libraries(test_linear_algebra_float PRIVATE GTest::GTest GTest::Main)
+gtest_discover_tests(test_linear_algebra_mat)
