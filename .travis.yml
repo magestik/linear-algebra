@@ -11,6 +11,7 @@ before_install:
   - cmake -DBUILD_GMOCK=FALSE -DCMAKE_INSTALL_PREFIX=$GTest_ROOT ..
   - cmake --build .
   - cmake --build . --target install
+  - cd $TRAVIS_BUILD_DIR
 
 matrix:
   include:
