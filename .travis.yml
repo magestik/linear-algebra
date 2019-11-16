@@ -4,7 +4,7 @@ env:
     - GTest_ROOT=$HOME/googletest
 
 before_install:
-  - git clone https://github.com/google/googletest.git
+  - git clone --single-branch --branch v1.8.x https://github.com/google/googletest.git
   - cd googletest
   - mkdir build
   - cd build
@@ -21,5 +21,6 @@ matrix:
     compiler: clang
   - os: osx
     compiler: clang
+    osx_image: xcode10
 
 script: ctest -S ci/travis.cmake
