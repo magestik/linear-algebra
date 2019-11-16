@@ -14,7 +14,7 @@ TEST(vec2, length)
 }
 
 /**
- * test_vector2_distance
+ * test_vec2_distance
  */
 TEST(vec2, distance)
 {
@@ -24,7 +24,7 @@ TEST(vec2, distance)
 }
 
 /**
- * test_vector2_dot
+ * test_vec2_dot
  */
 TEST(vec2, dot)
 {
@@ -34,7 +34,7 @@ TEST(vec2, dot)
 }
 
 /**
- * test_vector2_normalize
+ * test_vec2_normalize
  */
 TEST(vec2, normalize)
 {

@@ -17,15 +17,15 @@ endif()
 
 find_package(GTest REQUIRED)
 
-add_executable(test_linear_algebra_mat matrix.cpp)
-target_link_libraries(test_linear_algebra_mat PRIVATE linear-algebra)
-target_link_libraries(test_linear_algebra_mat PRIVATE GTest::GTest GTest::Main)
-gtest_discover_tests(test_linear_algebra_mat)
+add_executable(test_linear_algebra_matrix mat2x2.cpp mat3x3.cpp mat4x4.cpp)
+target_link_libraries(test_linear_algebra_matrix PRIVATE linear-algebra)
+target_link_libraries(test_linear_algebra_matrix PRIVATE GTest::GTest GTest::Main)
+gtest_discover_tests(test_linear_algebra_matrix)
 
-add_executable(test_linear_algebra_vec vector.cpp)
-target_link_libraries(test_linear_algebra_vec PRIVATE linear-algebra)
-target_link_libraries(test_linear_algebra_vec PRIVATE GTest::GTest GTest::Main)
-gtest_discover_tests(test_linear_algebra_vec)
+add_executable(test_linear_algebra_vector vec2.cpp vec3.cpp vec4.cpp)
+target_link_libraries(test_linear_algebra_vector PRIVATE linear-algebra)
+target_link_libraries(test_linear_algebra_vector PRIVATE GTest::GTest GTest::Main)
+gtest_discover_tests(test_linear_algebra_vector)
 
 add_executable(test_linear_algebra_float float.cpp)
 target_link_libraries(test_linear_algebra_float PRIVATE linear-algebra)
