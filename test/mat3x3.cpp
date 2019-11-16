@@ -2,6 +2,8 @@
 
 #include "Matrix.h"
 
+static_assert(sizeof(mat3x3) == 3*3*sizeof(float), "mat3x3 bad size");
+
 /**
  * @brief test_mat3x3_determinant
  */

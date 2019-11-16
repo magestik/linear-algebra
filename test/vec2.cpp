@@ -2,6 +2,8 @@
 
 #include "Vector.h"
 
+static_assert(sizeof(vec2) == 2*sizeof(float), "vec2 bad size");
+
 /**
  * test_vec2_length
  */

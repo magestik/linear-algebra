@@ -2,6 +2,8 @@
 
 #include "Matrix.h"
 
+static_assert(sizeof(mat2x2) == 2*2*sizeof(float), "mat2x2 bad size");
+
 /**
  * @brief test_mat2x2_determinant
  */
