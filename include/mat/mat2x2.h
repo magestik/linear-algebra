@@ -5,22 +5,30 @@
 template<typename T>
 struct matrix2x2
 {
-	constexpr matrix2x2 (void) : m11(0.0f), m12(0.0f), m21(0.0f), m22(0.0f)
+	constexpr matrix2x2 (void)
+		: m11(0.0f), m12(0.0f),
+		  m21(0.0f), m22(0.0f)
 	{
 		// ...
 	}
 
-	explicit constexpr matrix2x2 (T f) : m11(f), m12(0.0f), m21(0.0f), m22(f)
+	explicit constexpr matrix2x2 (T f)
+		: m11(f), m12(0.0f),
+		  m21(0.0f), m22(f)
 	{
 		// ...
 	}
 
-	explicit constexpr matrix2x2 (T a, T b, T c, T d) : m11(a), m12(b), m21(c), m22(d)
+	explicit constexpr matrix2x2 (T a, T b, T c, T d)
+		: m11(a), m12(b),
+		  m21(c), m22(d)
 	{
 		// ...
 	}
 
-	explicit constexpr matrix2x2 (const vector2<T> & v1, const vector2<T> & v2) : m11(v1.x), m12(v1.y), m21(v2.x), m22(v2.y)
+	explicit constexpr matrix2x2 (const vector2<T> & v1, const vector2<T> & v2)
+		: m11(v1.x), m12(v1.y),
+		  m21(v2.x), m22(v2.y)
 	{
 		// ...
 	}
