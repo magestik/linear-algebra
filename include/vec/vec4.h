@@ -43,7 +43,7 @@ union vector4
 		return(data[index]);
 	}
 
-	const T & operator [] (unsigned int index) const
+	constexpr T operator [] (unsigned int index) const
 	{
 		return(data[index]);
 	}
