@@ -145,7 +145,7 @@ static inline constexpr bvec4 operator!=(const vector4<T> & a, const vector4<T> 
 template<typename T>
 static inline constexpr T length(const vector4<T> & v)
 {
-	return(sqrt((v.x * v.x) + (v.y * v.y) + (v.z * v.z) + (v.w * v.w)));
+	return((T)sqrt((v.x * v.x) + (v.y * v.y) + (v.z * v.z) + (v.w * v.w)));
 }
 
 /**

@@ -158,7 +158,7 @@ static inline /*constexpr*/ vector3<T> cross(const vector3<T> & a, const vector3
 template<typename T>
 static inline constexpr T length(const vector3<T> & v)
 {
-	return(sqrt((v.x * v.x) + (v.y * v.y) + (v.z * v.z)));
+	return((T)sqrt((v.x * v.x) + (v.y * v.y) + (v.z * v.z)));
 }
 
 /**
