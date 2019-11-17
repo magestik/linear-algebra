@@ -27,8 +27,8 @@ struct matrix2x2
 	}
 
 	explicit constexpr matrix2x2 (const vector2<T> & v1_, const vector2<T> & v2_)
-		: m11(v1.x), m12(v1.y),
-		  m21(v2.x), m22(v2.y)
+		: m11(v1_.x), m12(v1_.y),
+		  m21(v2_.x), m22(v2_.y)
 	{
 		// ...
 	}
