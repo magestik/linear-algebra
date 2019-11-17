@@ -22,7 +22,7 @@ target_link_libraries(test_linear_algebra_matrix PRIVATE linear-algebra)
 target_link_libraries(test_linear_algebra_matrix PRIVATE GTest::GTest GTest::Main)
 gtest_discover_tests(test_linear_algebra_matrix)
 
-add_executable(test_linear_algebra_vector vec2.cpp vec3.cpp vec4.cpp)
+add_executable(test_linear_algebra_vector vec2.cpp vec3.cpp vec4.cpp helpers.h)
 target_link_libraries(test_linear_algebra_vector PRIVATE linear-algebra)
 target_link_libraries(test_linear_algebra_vector PRIVATE GTest::GTest GTest::Main)
 gtest_discover_tests(test_linear_algebra_vector)
