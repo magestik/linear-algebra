@@ -3,25 +3,27 @@
 #include "bvec2.h"
 
 template<typename T>
-union vector2
+struct vector2
 {
-	struct { T x, y; };
+	union
+	{
+		struct { T x, y; };
+
+		T xy [2];
+	};
 
 	//
 	// Constructors
 	//
 
-	explicit constexpr vector2 (void) : x(0), y(0)
+	explicit constexpr vector2(void) : xy { 0, 0 }
 	{
 		// ...
 	}
 
-	explicit constexpr vector2 (T _x, T _y) : x(_x), y(_y)
+	explicit constexpr vector2(T _x, T _y) : xy { _x, _y }
 	{
-#if defined(_MSC_VER) && _MSC_VER == 1916
-		x = _x;
-		y = _y;
-#endif
+		// ...
 	}
 
 	//
@@ -30,17 +32,13 @@ union vector2
 
 	T & operator [] (unsigned int index)
 	{
-		return(data[index]);
+		return(xy[index]);
 	}
 
 	constexpr T operator [] (unsigned int index) const
 	{
-		return(data[index]);
+		return(xy[index]);
 	}
-
-private:
-
-	float data [2];
 };
 
 #include "vec2.inl"

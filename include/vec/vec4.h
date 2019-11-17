@@ -3,65 +3,55 @@
 #include "bvec4.h"
 
 template<typename T>
-union vector4
+struct vector4
 {
-	struct
+	union
 	{
-		T x;
-
-		union
+		struct
 		{
-			struct { T y, z, w; };
-			struct { vector2<T> yz; };
-			struct { vector3<T> yzw; };
-		};
-	};
+			T x;
 
-	struct { vector2<T> xy; vector2<T> zw; };
-	struct { vector3<T> xyz; };
+			union
+			{
+				struct { T y, z, w; };
+				struct { vector2<T> yz; };
+				struct { vector3<T> yzw; };
+			};
+		};
+
+		struct { vector2<T> xy; vector2<T> zw; };
+		struct { vector3<T> xyz; };
+
+		float xyzw [4];
+	};
 
 	//
 	// Constructors
 	//
 
-	explicit constexpr vector4 (void) : x(0), y(0), z(0), w(0)
+	explicit constexpr vector4(void) : xyzw { 0, 0, 0, 0 }
 	{
 		// ...
 	}
 
-	explicit constexpr vector4 (T _x, T _y, T _z, T _w) : x(_x), y(_y), z(_z), w(_w)
+	explicit constexpr vector4(T _x, T _y, T _z, T _w) : xyzw { _x, _y, _z, _w }
 	{
-#if defined(_MSC_VER) && _MSC_VER == 1916
-		x = _x;
-		y = _y;
-		z = _z;
-		w = _w;
-#endif
+		// ...
 	}
 
-	explicit constexpr vector4 (const vector3<T> & v, T _w) : x(v.x), y(v.y), z(v.z), w(_w)
+	explicit constexpr vector4(const vector3<T> & v, T _w) : xyzw { v.xyz[0], v.xyz[1], v.xyz[2], _w }
 	{
-#if defined(_MSC_VER) && _MSC_VER == 1916
-		xyz = v;
-		w = _w;
-#endif
+		// ...
 	}
 
-	explicit constexpr vector4 (const vector2<T> & v, T _z, T _w) : x(v.x), y(v.y), z(_z), w(_w)
+	explicit constexpr vector4 (const vector2<T> & v, T _z, T _w) : xyzw { v.xy[0], v.xy[1], _z, _w }
 	{
-#if defined(_MSC_VER) && _MSC_VER == 1916
-		xy = v;
-		z = _z;
-		w = _w;
-#endif
+		// ...
 	}
 
-	explicit constexpr vector4 (const vector2<T> & v1, const vector2<T> & v2) : x(v1.x), y(v1.y), z(v2.x), w(v2.y)
+	explicit constexpr vector4 (const vector2<T> & v1, const vector2<T> & v2) : xyzw { v1.xy[0], v1.xy[1], v2.xy[0], v2.xy[1] }
 	{
-#if defined(_MSC_VER) && _MSC_VER == 1916
-		xy = v1;
-		zw = v2;
-#endif
+		// ...
 	}
 
 	//
@@ -70,17 +60,13 @@ union vector4
 
 	T & operator [] (unsigned int index)
 	{
-		return(data[index]);
+		return(xyzw[index]);
 	}
 
 	constexpr T operator [] (unsigned int index) const
 	{
-		return(data[index]);
+		return(xyzw[index]);
 	}
-
-private:
-
-	float data [4];
 };
 
 #include "vec4.inl"

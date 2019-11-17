@@ -3,46 +3,43 @@
 #include "bvec3.h"
 
 template<typename T>
-union vector3
+struct vector3
 {
-	struct
+	union
 	{
-		T x;
-
-		union
+		struct
 		{
-			struct { T y, z; };
-			struct { vector2<T> yz; };
-		};
-	};
+			T x;
 
-	struct { vector2<T> xy; };
+			union
+			{
+				struct { T y, z; };
+				struct { vector2<T> yz; };
+			};
+		};
+
+		struct { vector2<T> xy; };
+
+		T xyz [3];
+	};
 
 	//
 	// Constructors
 	//
 
-	explicit constexpr vector3 (void) : x(0), y(0), z(0)
+	explicit constexpr vector3(void) : xyz { 0, 0, 0 }
 	{
 		// ...
 	}
 
-	explicit constexpr vector3 (T _x, T _y, T _z) : x(_x), y(_y), z(_z)
+	explicit constexpr vector3(T _x, T _y, T _z) : xyz { _x, _y, _z }
 	{
-#if defined(_MSC_VER) && _MSC_VER == 1916
-		x = _x;
-		y = _y;
-		z = _z;
-#endif
+		// ...
 	}
 
-	explicit constexpr vector3 (const vector2<T> & v, T _z) : x(v.x), y(v.y), z(_z)
+	explicit constexpr vector3 (const vector2<T> & v, T _z) : xyz { v.xy[0], v.xy[1], _z }
 	{
-#if defined(_MSC_VER) && _MSC_VER == 1916
-		x = v.x;
-		y = v.y;
-		z = _z;
-#endif
+		// ...
 	}
 
 	//
@@ -51,17 +48,13 @@ union vector3
 
 	T & operator [] (unsigned int index)
 	{
-		return(data[index]);
+		return(xyz[index]);
 	}
 
 	constexpr T operator [] (unsigned int index) const
 	{
-		return(data[index]);
+		return(xyz[index]);
 	}
-
-private:
-
-	float data [3];
 };
 
 #include "vec3.inl"
