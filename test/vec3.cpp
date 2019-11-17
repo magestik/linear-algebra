@@ -77,6 +77,24 @@ TEST(vec3, constructors_constexpr)
 }
 
 /**
+ * test_vec3_assignement
+ */
+TEST(vec3, assignement)
+{
+	vec3 a = vec3(1.0f, 2.0f, 3.0f);
+	VEC2_BASIC_CHECKS(a);
+	EXPECT_FLOAT_EQ(a.x, 1.0f);
+	EXPECT_FLOAT_EQ(a.y, 2.0f);
+	EXPECT_FLOAT_EQ(a.z, 3.0f);
+
+	a = vec3(4.0f, 5.0f, 6.0f);
+	VEC2_BASIC_CHECKS(a);
+	EXPECT_FLOAT_EQ(a.x, 4.0f);
+	EXPECT_FLOAT_EQ(a.y, 5.0f);
+	EXPECT_FLOAT_EQ(a.z, 6.0f);
+}
+
+/**
  * test_vec3_length
  */
 TEST(vec3, length)

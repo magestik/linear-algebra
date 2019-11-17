@@ -145,6 +145,26 @@ TEST(vec4, constructors_constexpr)
 }
 
 /**
+ * test_vec4_assignement
+ */
+TEST(vec4, assignement)
+{
+	vec4 a = vec4(1.0f, 2.0f, 3.0f, 4.0f);
+	VEC2_BASIC_CHECKS(a);
+	EXPECT_FLOAT_EQ(a.x, 1.0f);
+	EXPECT_FLOAT_EQ(a.y, 2.0f);
+	EXPECT_FLOAT_EQ(a.z, 3.0f);
+	EXPECT_FLOAT_EQ(a.w, 4.0f);
+
+	a = vec4(5.0f, 6.0f, 7.0f, 8.0f);
+	VEC2_BASIC_CHECKS(a);
+	EXPECT_FLOAT_EQ(a.x, 5.0f);
+	EXPECT_FLOAT_EQ(a.y, 6.0f);
+	EXPECT_FLOAT_EQ(a.z, 7.0f);
+	EXPECT_FLOAT_EQ(a.w, 8.0f);
+}
+
+/**
  * test_vec4_length
  */
 TEST(vec4, length)

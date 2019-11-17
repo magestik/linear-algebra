@@ -49,6 +49,22 @@ TEST(vec2, constructors_constexpr)
 }
 
 /**
+ * test_vec2_assignement
+ */
+TEST(vec2, assignement)
+{
+	vec2 a = vec2(1.0f, 2.0f);
+	VEC2_BASIC_CHECKS(a);
+	EXPECT_FLOAT_EQ(a.x, 1.0f);
+	EXPECT_FLOAT_EQ(a.y, 2.0f);
+
+	a = vec2(3.0f, 4.0f);
+	VEC2_BASIC_CHECKS(a);
+	EXPECT_FLOAT_EQ(a.x, 3.0f);
+	EXPECT_FLOAT_EQ(a.y, 4.0f);
+}
+
+/**
  * test_vec2_length
  */
 TEST(vec2, length)
