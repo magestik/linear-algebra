@@ -187,8 +187,11 @@ TEST(vec4, dot)
  */
 TEST(vec4, normalize)
 {
-	constexpr vec4 a(2.0f, 0.0f, 0.0f, 0.0f);
+	constexpr vec4 a(0.0f, 0.0f, 0.0f, 0.0f);
 	VEC4_BASIC_CHECKS(a);
+	EXPECT_TRUE(all(normalize(a) == vec4(0.0f, 0.0f, 0.0f, 0.0f)));
 
-	EXPECT_TRUE(all(normalize(a) == vec4(1.0f, 0.0f, 0.0f, 0.0f)));
+	constexpr vec4 b(2.0f, 0.0f, 0.0f, 0.0f);
+	VEC4_BASIC_CHECKS(b);
+	EXPECT_TRUE(all(normalize(b) == vec4(1.0f, 0.0f, 0.0f, 0.0f)));
 }

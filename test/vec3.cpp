@@ -119,7 +119,11 @@ TEST(vec3, dot)
  */
 TEST(vec3, normalize)
 {
-	constexpr vec3 a(2.0f, 0.0f, 0.0f);
+	constexpr vec3 a(0.0f, 0.0f, 0.0f);
 	VEC3_BASIC_CHECKS(a);
-	EXPECT_TRUE(all(normalize(a) == vec3(1.0f, 0.0f, 0.0f)));
+	EXPECT_TRUE(all(normalize(a) == vec3(0.0f, 0.0f, 0.0f)));
+
+	constexpr vec3 b(2.0f, 0.0f, 0.0f);
+	VEC3_BASIC_CHECKS(b);
+	EXPECT_TRUE(all(normalize(b) == vec3(1.0f, 0.0f, 0.0f)));
 }

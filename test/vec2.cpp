@@ -91,8 +91,11 @@ TEST(vec2, dot)
  */
 TEST(vec2, normalize)
 {
-	constexpr vec2 a(2.0f, 0.0f);
+	constexpr vec2 a(0.0f, 0.0f);
 	VEC2_BASIC_CHECKS(a);
+	EXPECT_TRUE(all(normalize(a) == vec2(0.0f, 0.0f)));
 
-	EXPECT_TRUE(all(normalize(a) == vec2(1.0f, 0.0f)));
+	constexpr vec2 b(2.0f, 0.0f);
+	VEC2_BASIC_CHECKS(b);
+	EXPECT_TRUE(all(normalize(b) == vec2(1.0f, 0.0f)));
 }
