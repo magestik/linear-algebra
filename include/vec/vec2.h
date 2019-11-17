@@ -11,9 +11,18 @@ union vector2
 	// Constructors
 	//
 
-	explicit constexpr vector2 (void) : x(0), y(0) { }
+	explicit constexpr vector2 (void) : x(0), y(0)
+	{
+		// ...
+	}
 
-	explicit constexpr vector2 (T _x, T _y) : x(_x), y(_y) { }
+	explicit constexpr vector2 (T _x, T _y) : x(_x), y(_y)
+	{
+#if defined(_MSC_VER) && _MSC_VER == 1916
+		x = _x;
+		y = _y;
+#endif
+	}
 
 	//
 	// Accessors

@@ -24,15 +24,45 @@ union vector4
 	// Constructors
 	//
 
-	explicit constexpr vector4 (void) : x(0), y(0), z(0), w(0) { }
+	explicit constexpr vector4 (void) : x(0), y(0), z(0), w(0)
+	{
+		// ...
+	}
 
-	explicit constexpr vector4 (T _x, T _y, T _z, T _w) : x(_x), y(_y), z(_z), w(_w) { }
+	explicit constexpr vector4 (T _x, T _y, T _z, T _w) : x(_x), y(_y), z(_z), w(_w)
+	{
+#if defined(_MSC_VER) && _MSC_VER == 1916
+		x = _x;
+		y = _y;
+		z = _z;
+		w = _w;
+#endif
+	}
 
-	explicit constexpr vector4 (const vector3<T> & v, T _w) : x(v.x), y(v.y), z(v.z), w(_w) { }
+	explicit constexpr vector4 (const vector3<T> & v, T _w) : x(v.x), y(v.y), z(v.z), w(_w)
+	{
+#if defined(_MSC_VER) && _MSC_VER == 1916
+		xyz = v;
+		w = _w;
+#endif
+	}
 
-	explicit constexpr vector4 (const vector2<T> & v1, T _z, T _w) : x(v1.x), y(v1.y), z(_z), w(_w) { }
+	explicit constexpr vector4 (const vector2<T> & v, T _z, T _w) : x(v.x), y(v.y), z(_z), w(_w)
+	{
+#if defined(_MSC_VER) && _MSC_VER == 1916
+		xy = v;
+		z = _z;
+		w = _w;
+#endif
+	}
 
-	explicit constexpr vector4 (const vector2<T> & v1, const vector2<T> & v2) : x(v1.x), y(v1.y), z(v2.x), w(v2.y) { }
+	explicit constexpr vector4 (const vector2<T> & v1, const vector2<T> & v2) : x(v1.x), y(v1.y), z(v2.x), w(v2.y)
+	{
+#if defined(_MSC_VER) && _MSC_VER == 1916
+		xy = v1;
+		zw = v2;
+#endif
+	}
 
 	//
 	// Accessors
