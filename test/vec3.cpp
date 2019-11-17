@@ -9,6 +9,32 @@ static_assert(sizeof(vec3) == 3*sizeof(float), "vec3 bad size");
  */
 TEST(vec3, constructors)
 {
+	const vec3 a;
+	EXPECT_FLOAT_EQ(a.x, 0.0f);
+	EXPECT_FLOAT_EQ(a.y, 0.0f);
+	EXPECT_FLOAT_EQ(a.z, 0.0f);
+
+	const vec3 b(0.0f, 0.0f, 0.0f);
+	EXPECT_FLOAT_EQ(b.x, 0.0f);
+	EXPECT_FLOAT_EQ(b.y, 0.0f);
+	EXPECT_FLOAT_EQ(b.z, 0.0f);
+
+	const vec3 c(1.0f, 2.0f, 3.0f);
+	EXPECT_FLOAT_EQ(c.x, 1.0f);
+	EXPECT_FLOAT_EQ(c.y, 2.0f);
+	EXPECT_FLOAT_EQ(c.z, 3.0f);
+
+	const vec3 d(vec2(4.0f, 5.0f), 6.0f);
+	EXPECT_FLOAT_EQ(d.x, 4.0f);
+	EXPECT_FLOAT_EQ(d.y, 5.0f);
+	EXPECT_FLOAT_EQ(d.z, 6.0f);
+}
+
+/**
+ * test_vec3_constructors_constexpr
+ */
+TEST(vec3, constructors_constexpr)
+{
 	constexpr vec3 a;
 	EXPECT_FLOAT_EQ(a.x, 0.0f);
 	EXPECT_FLOAT_EQ(a.y, 0.0f);
