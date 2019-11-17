@@ -49,7 +49,7 @@ struct matrix3x3
 
 private:
 
-	union
+	union // row-major
 	{
 		struct
 		{
@@ -70,7 +70,7 @@ private:
 			vector3<T> v3;
 		};
 		vector3<T> v [3];
-		T m [9]; // row-major
+		T m [9];
 	};
 };
 

@@ -53,7 +53,7 @@ struct matrix4x4
 
 private:
 
-	union
+	union // row-major
 	{
 		struct
 		{
@@ -82,7 +82,7 @@ private:
 			vector4<T> v4;
 		};
 		vector4<T> v [4];
-		T m [16]; // row-major
+		T m [16];
 	};
 };
 

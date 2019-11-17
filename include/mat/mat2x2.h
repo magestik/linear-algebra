@@ -45,7 +45,7 @@ struct matrix2x2
 
 private:
 
-	union
+	union // row-major
 	{
 		struct
 		{
@@ -60,7 +60,7 @@ private:
 			vector2<T> v2;
 		};
 		vector2<T> v [2];
-		T m [4]; // row-major
+		T m [4];
 	};
 };
 
