@@ -27,23 +27,40 @@ TEST(vec4, constructors)
 	EXPECT_FLOAT_EQ(c.z, 3.0f);
 	EXPECT_FLOAT_EQ(c.w, 4.0f);
 
-	const vec4 d(vec2(5.0f, 6.0f), 7.0f, 8.0f);
+	const vec2 d(5.0f, 6.0f);
 	EXPECT_FLOAT_EQ(d.x, 5.0f);
 	EXPECT_FLOAT_EQ(d.y, 6.0f);
-	EXPECT_FLOAT_EQ(d.z, 7.0f);
-	EXPECT_FLOAT_EQ(d.w, 8.0f);
 
-	const vec4 e(vec2(9.0f, 10.0f), vec2(11.0f, 12.0f));
-	EXPECT_FLOAT_EQ(e.x, 9.0f);
-	EXPECT_FLOAT_EQ(e.y, 10.0f);
-	EXPECT_FLOAT_EQ(e.z, 11.0f);
-	EXPECT_FLOAT_EQ(e.w, 12.0f);
+	const vec4 e(d, 7.0f, 8.0f);
+	EXPECT_FLOAT_EQ(e.x, d.x);
+	EXPECT_FLOAT_EQ(e.y, d.y);
+	EXPECT_FLOAT_EQ(e.z, 7.0f);
+	EXPECT_FLOAT_EQ(e.w, 8.0f);
 
-	const vec4 f(vec3(13.0f, 14.0f, 15.0f), 16.0f);
-	EXPECT_FLOAT_EQ(f.x, 13.0f);
-	EXPECT_FLOAT_EQ(f.y, 14.0f);
-	EXPECT_FLOAT_EQ(f.z, 15.0f);
-	EXPECT_FLOAT_EQ(f.w, 16.0f);
+	const vec2 f(9.0f, 10.0f);
+	EXPECT_FLOAT_EQ(f.x, 9.0f);
+	EXPECT_FLOAT_EQ(f.y, 10.0f);
+
+	const vec2 g(11.0f, 12.0f);
+	EXPECT_FLOAT_EQ(g.x, 11.0f);
+	EXPECT_FLOAT_EQ(g.y, 12.0f);
+
+	const vec4 h(f, g);
+	EXPECT_FLOAT_EQ(h.x, f.x);
+	EXPECT_FLOAT_EQ(h.y, f.y);
+	EXPECT_FLOAT_EQ(h.z, g.x);
+	EXPECT_FLOAT_EQ(h.w, g.y);
+
+	const vec3 i(13.0f, 14.0f, 15.0f);
+	EXPECT_FLOAT_EQ(i.x, 13.0f);
+	EXPECT_FLOAT_EQ(i.y, 14.0f);
+	EXPECT_FLOAT_EQ(i.z, 15.0f);
+
+	const vec4 j(i, 16.0f);
+	EXPECT_FLOAT_EQ(j.x, i.x);
+	EXPECT_FLOAT_EQ(j.y, i.y);
+	EXPECT_FLOAT_EQ(j.z, i.z);
+	EXPECT_FLOAT_EQ(j.w, 16.0f);
 }
 
 /**
@@ -69,23 +86,40 @@ TEST(vec4, constructors_constexpr)
 	EXPECT_FLOAT_EQ(c.z, 3.0f);
 	EXPECT_FLOAT_EQ(c.w, 4.0f);
 
-	constexpr vec4 d(vec2(5.0f, 6.0f), 7.0f, 8.0f);
+	constexpr vec2 d(5.0f, 6.0f);
 	EXPECT_FLOAT_EQ(d.x, 5.0f);
 	EXPECT_FLOAT_EQ(d.y, 6.0f);
-	EXPECT_FLOAT_EQ(d.z, 7.0f);
-	EXPECT_FLOAT_EQ(d.w, 8.0f);
 
-	constexpr vec4 e(vec2(9.0f, 10.0f), vec2(11.0f, 12.0f));
-	EXPECT_FLOAT_EQ(e.x, 9.0f);
-	EXPECT_FLOAT_EQ(e.y, 10.0f);
-	EXPECT_FLOAT_EQ(e.z, 11.0f);
-	EXPECT_FLOAT_EQ(e.w, 12.0f);
+	constexpr vec4 e(d, 7.0f, 8.0f);
+	EXPECT_FLOAT_EQ(e.x, d.x);
+	EXPECT_FLOAT_EQ(e.y, d.y);
+	EXPECT_FLOAT_EQ(e.z, 7.0f);
+	EXPECT_FLOAT_EQ(e.w, 8.0f);
 
-	constexpr vec4 f(vec3(13.0f, 14.0f, 15.0f), 16.0f);
-	EXPECT_FLOAT_EQ(f.x, 13.0f);
-	EXPECT_FLOAT_EQ(f.y, 14.0f);
-	EXPECT_FLOAT_EQ(f.z, 15.0f);
-	EXPECT_FLOAT_EQ(f.w, 16.0f);
+	constexpr vec2 f(9.0f, 10.0f);
+	EXPECT_FLOAT_EQ(f.x, 9.0f);
+	EXPECT_FLOAT_EQ(f.y, 10.0f);
+
+	constexpr vec2 g(11.0f, 12.0f);
+	EXPECT_FLOAT_EQ(g.x, 11.0f);
+	EXPECT_FLOAT_EQ(g.y, 12.0f);
+
+	constexpr vec4 h(f, g);
+	EXPECT_FLOAT_EQ(h.x, f.x);
+	EXPECT_FLOAT_EQ(h.y, f.y);
+	EXPECT_FLOAT_EQ(h.z, g.x);
+	EXPECT_FLOAT_EQ(h.w, g.y);
+
+	constexpr vec3 i(13.0f, 14.0f, 15.0f);
+	EXPECT_FLOAT_EQ(i.x, 13.0f);
+	EXPECT_FLOAT_EQ(i.y, 14.0f);
+	EXPECT_FLOAT_EQ(i.z, 15.0f);
+
+	constexpr vec4 j(i, 16.0f);
+	EXPECT_FLOAT_EQ(j.x, i.x);
+	EXPECT_FLOAT_EQ(j.y, i.y);
+	EXPECT_FLOAT_EQ(j.z, i.z);
+	EXPECT_FLOAT_EQ(j.w, 16.0f);
 }
 
 /**

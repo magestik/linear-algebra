@@ -24,10 +24,14 @@ TEST(vec3, constructors)
 	EXPECT_FLOAT_EQ(c.y, 2.0f);
 	EXPECT_FLOAT_EQ(c.z, 3.0f);
 
-	const vec3 d(vec2(4.0f, 5.0f), 6.0f);
+	const vec2 d(4.0f, 5.0f);
 	EXPECT_FLOAT_EQ(d.x, 4.0f);
 	EXPECT_FLOAT_EQ(d.y, 5.0f);
-	EXPECT_FLOAT_EQ(d.z, 6.0f);
+
+	const vec3 e(d, 6.0f);
+	EXPECT_FLOAT_EQ(e.x, d.x);
+	EXPECT_FLOAT_EQ(e.y, d.y);
+	EXPECT_FLOAT_EQ(e.z, 6.0f);
 }
 
 /**
@@ -50,10 +54,14 @@ TEST(vec3, constructors_constexpr)
 	EXPECT_FLOAT_EQ(c.y, 2.0f);
 	EXPECT_FLOAT_EQ(c.z, 3.0f);
 
-	constexpr vec3 d(vec2(4.0f, 5.0f), 6.0f);
+	constexpr vec2 d(4.0f, 5.0f);
 	EXPECT_FLOAT_EQ(d.x, 4.0f);
 	EXPECT_FLOAT_EQ(d.y, 5.0f);
-	EXPECT_FLOAT_EQ(d.z, 6.0f);
+
+	constexpr vec3 e(d, 6.0f);
+	EXPECT_FLOAT_EQ(e.x, d.x);
+	EXPECT_FLOAT_EQ(e.y, d.y);
+	EXPECT_FLOAT_EQ(e.z, 6.0f);
 }
 
 /**
