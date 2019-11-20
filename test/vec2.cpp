@@ -65,6 +65,27 @@ TEST(vec2, assignement)
 }
 
 /**
+ * test_vec2_negation
+ */
+TEST(vec2, negation)
+{
+	const vec2 a = - vec2(0.0f, 0.0f);
+	VEC2_BASIC_CHECKS(a);
+	EXPECT_FLOAT_EQ(a.x, 0.0f);
+	EXPECT_FLOAT_EQ(a.y, 0.0f);
+
+	const vec2 b = - vec2(1.0f, 2.0f);
+	VEC2_BASIC_CHECKS(b);
+	EXPECT_FLOAT_EQ(b.x, -1.0f);
+	EXPECT_FLOAT_EQ(b.y, -2.0f);
+
+	const vec2 c = -b;
+	VEC2_BASIC_CHECKS(c);
+	EXPECT_FLOAT_EQ(c.x, 1.0f);
+	EXPECT_FLOAT_EQ(c.y, 2.0f);
+}
+
+/**
  * test_vec2_length
  */
 TEST(vec2, length)
