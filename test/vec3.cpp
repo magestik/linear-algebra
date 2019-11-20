@@ -169,6 +169,31 @@ TEST(vec3, subtraction)
 }
 
 /**
+ * test_vec3_multiplication
+ */
+TEST(vec3, multiplication)
+{
+	const vec3 a = vec3(1.0f, 1.0f, 1.0f);
+	VEC2_BASIC_CHECKS(a);
+	const vec3 b = a * vec3(1.0f, 2.0f, 3.0f);
+	VEC2_BASIC_CHECKS(b);
+	const vec3 c = b * b;
+	VEC3_BASIC_CHECKS(c);
+
+	EXPECT_FLOAT_EQ(a.x, 1.0f);
+	EXPECT_FLOAT_EQ(a.y, 1.0f);
+	EXPECT_FLOAT_EQ(a.z, 1.0f);
+
+	EXPECT_FLOAT_EQ(b.x, 1.0f);
+	EXPECT_FLOAT_EQ(b.y, 2.0f);
+	EXPECT_FLOAT_EQ(b.z, 3.0f);
+
+	EXPECT_FLOAT_EQ(c.x, 1.0f);
+	EXPECT_FLOAT_EQ(c.y, 4.0f);
+	EXPECT_FLOAT_EQ(c.z, 9.0f);
+}
+
+/**
  * test_vec3_length
  */
 TEST(vec3, length)
