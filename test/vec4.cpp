@@ -185,10 +185,10 @@ TEST(vec4, negation)
 
 	const vec4 c = -b;
 	VEC4_BASIC_CHECKS(c);
-	EXPECT_FLOAT_EQ(c.x, 1.0f);
-	EXPECT_FLOAT_EQ(c.y, 2.0f);
-	EXPECT_FLOAT_EQ(c.z, 3.0f);
-	EXPECT_FLOAT_EQ(c.w, 4.0f);
+	EXPECT_FLOAT_EQ(c.x, -b.x);
+	EXPECT_FLOAT_EQ(c.y, -b.y);
+	EXPECT_FLOAT_EQ(c.z, -b.z);
+	EXPECT_FLOAT_EQ(c.w, -b.w);
 }
 
 /**
@@ -208,15 +208,15 @@ TEST(vec4, addition)
 	EXPECT_FLOAT_EQ(a.z, 0.0f);
 	EXPECT_FLOAT_EQ(a.w, 0.0f);
 
-	EXPECT_FLOAT_EQ(b.x, 1.0f);
-	EXPECT_FLOAT_EQ(b.y, 2.0f);
-	EXPECT_FLOAT_EQ(b.z, 3.0f);
-	EXPECT_FLOAT_EQ(b.w, 4.0f);
+	EXPECT_FLOAT_EQ(b.x, a.x+1.0f);
+	EXPECT_FLOAT_EQ(b.y, a.y+2.0f);
+	EXPECT_FLOAT_EQ(b.z, a.z+3.0f);
+	EXPECT_FLOAT_EQ(b.w, a.w+4.0f);
 
-	EXPECT_FLOAT_EQ(c.x, 2.0f);
-	EXPECT_FLOAT_EQ(c.y, 4.0f);
-	EXPECT_FLOAT_EQ(c.z, 6.0f);
-	EXPECT_FLOAT_EQ(c.w, 8.0f);
+	EXPECT_FLOAT_EQ(c.x, b.x+b.x);
+	EXPECT_FLOAT_EQ(c.y, b.y+b.y);
+	EXPECT_FLOAT_EQ(c.z, b.z+b.z);
+	EXPECT_FLOAT_EQ(c.w, b.w+b.w);
 }
 
 /**
@@ -236,15 +236,15 @@ TEST(vec4, subtraction)
 	EXPECT_FLOAT_EQ(a.z, 0.0f);
 	EXPECT_FLOAT_EQ(a.w, 0.0f);
 
-	EXPECT_FLOAT_EQ(b.x, -1.0f);
-	EXPECT_FLOAT_EQ(b.y, -2.0f);
-	EXPECT_FLOAT_EQ(b.z, -3.0f);
-	EXPECT_FLOAT_EQ(b.w, -4.0f);
+	EXPECT_FLOAT_EQ(b.x, a.x-1.0f);
+	EXPECT_FLOAT_EQ(b.y, a.y-2.0f);
+	EXPECT_FLOAT_EQ(b.z, a.z-3.0f);
+	EXPECT_FLOAT_EQ(b.w, a.w-4.0f);
 
-	EXPECT_FLOAT_EQ(c.x, 0.0f);
-	EXPECT_FLOAT_EQ(c.y, 0.0f);
-	EXPECT_FLOAT_EQ(c.z, 0.0f);
-	EXPECT_FLOAT_EQ(c.w, 0.0f);
+	EXPECT_FLOAT_EQ(c.x, b.x-b.x);
+	EXPECT_FLOAT_EQ(c.y, b.y-b.y);
+	EXPECT_FLOAT_EQ(c.z, b.z-b.z);
+	EXPECT_FLOAT_EQ(c.w, b.w-b.w);
 }
 
 /**
@@ -264,15 +264,43 @@ TEST(vec4, multiplication)
 	EXPECT_FLOAT_EQ(a.z, 1.0f);
 	EXPECT_FLOAT_EQ(a.w, 1.0f);
 
-	EXPECT_FLOAT_EQ(b.x, 1.0f);
-	EXPECT_FLOAT_EQ(b.y, 2.0f);
-	EXPECT_FLOAT_EQ(b.z, 3.0f);
-	EXPECT_FLOAT_EQ(b.w, 4.0f);
+	EXPECT_FLOAT_EQ(b.x, a.x*1.0f);
+	EXPECT_FLOAT_EQ(b.y, a.y*2.0f);
+	EXPECT_FLOAT_EQ(b.z, a.z*3.0f);
+	EXPECT_FLOAT_EQ(b.w, a.w*4.0f);
 
-	EXPECT_FLOAT_EQ(c.x, 1.0f);
-	EXPECT_FLOAT_EQ(c.y, 4.0f);
-	EXPECT_FLOAT_EQ(c.z, 9.0f);
-	EXPECT_FLOAT_EQ(c.w, 16.0f);
+	EXPECT_FLOAT_EQ(c.x, b.x*b.x);
+	EXPECT_FLOAT_EQ(c.y, b.y*b.y);
+	EXPECT_FLOAT_EQ(c.z, b.z*b.z);
+	EXPECT_FLOAT_EQ(c.w, b.w*b.w);
+}
+
+/**
+ * test_vec4_division
+ */
+TEST(vec4, division)
+{
+	const vec4 a = vec4(1.0f, 1.0f, 1.0f, 1.0f);
+	VEC4_BASIC_CHECKS(a);
+	const vec4 b = a / vec4(1.0f, 2.0f, 3.0f, 4.0f);
+	VEC4_BASIC_CHECKS(b);
+	const vec4 c = b / b;
+	VEC4_BASIC_CHECKS(c);
+
+	EXPECT_FLOAT_EQ(a.x, 1.0f);
+	EXPECT_FLOAT_EQ(a.y, 1.0f);
+	EXPECT_FLOAT_EQ(a.z, 1.0f);
+	EXPECT_FLOAT_EQ(a.w, 1.0f);
+
+	EXPECT_FLOAT_EQ(b.x, a.x/1.0f);
+	EXPECT_FLOAT_EQ(b.y, a.y/2.0f);
+	EXPECT_FLOAT_EQ(b.z, a.z/3.0f);
+	EXPECT_FLOAT_EQ(b.w, a.w/4.0f);
+
+	EXPECT_FLOAT_EQ(c.x, b.x/b.x);
+	EXPECT_FLOAT_EQ(c.y, b.y/b.y);
+	EXPECT_FLOAT_EQ(c.z, b.z/b.z);
+	EXPECT_FLOAT_EQ(c.w, b.w/b.w);
 }
 
 /**

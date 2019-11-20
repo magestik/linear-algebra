@@ -113,9 +113,9 @@ TEST(vec3, negation)
 
 	const vec3 c = -b;
 	VEC3_BASIC_CHECKS(c);
-	EXPECT_FLOAT_EQ(c.x, 1.0f);
-	EXPECT_FLOAT_EQ(c.y, 2.0f);
-	EXPECT_FLOAT_EQ(c.z, 3.0f);
+	EXPECT_FLOAT_EQ(c.x, -b.x);
+	EXPECT_FLOAT_EQ(c.y, -b.y);
+	EXPECT_FLOAT_EQ(c.z, -b.z);
 }
 
 /**
@@ -134,13 +134,13 @@ TEST(vec3, addition)
 	EXPECT_FLOAT_EQ(a.y, 0.0f);
 	EXPECT_FLOAT_EQ(a.z, 0.0f);
 
-	EXPECT_FLOAT_EQ(b.x, 1.0f);
-	EXPECT_FLOAT_EQ(b.y, 2.0f);
-	EXPECT_FLOAT_EQ(b.z, 3.0f);
+	EXPECT_FLOAT_EQ(b.x, a.x+1.0f);
+	EXPECT_FLOAT_EQ(b.y, a.y+2.0f);
+	EXPECT_FLOAT_EQ(b.z, a.z+3.0f);
 
-	EXPECT_FLOAT_EQ(c.x, 2.0f);
-	EXPECT_FLOAT_EQ(c.y, 4.0f);
-	EXPECT_FLOAT_EQ(c.z, 6.0f);
+	EXPECT_FLOAT_EQ(c.x, b.x+b.x);
+	EXPECT_FLOAT_EQ(c.y, b.y+b.y);
+	EXPECT_FLOAT_EQ(c.z, b.z+b.z);
 }
 
 /**
@@ -159,13 +159,13 @@ TEST(vec3, subtraction)
 	EXPECT_FLOAT_EQ(a.y, 0.0f);
 	EXPECT_FLOAT_EQ(a.z, 0.0f);
 
-	EXPECT_FLOAT_EQ(b.x, -1.0f);
-	EXPECT_FLOAT_EQ(b.y, -2.0f);
-	EXPECT_FLOAT_EQ(b.z, -3.0f);
+	EXPECT_FLOAT_EQ(b.x, a.x-1.0f);
+	EXPECT_FLOAT_EQ(b.y, a.y-2.0f);
+	EXPECT_FLOAT_EQ(b.z, a.z-3.0f);
 
-	EXPECT_FLOAT_EQ(c.x, 0.0f);
-	EXPECT_FLOAT_EQ(c.y, 0.0f);
-	EXPECT_FLOAT_EQ(c.z, 0.0f);
+	EXPECT_FLOAT_EQ(c.x, b.x-b.x);
+	EXPECT_FLOAT_EQ(c.y, b.y-b.y);
+	EXPECT_FLOAT_EQ(c.z, b.z-b.z);
 }
 
 /**
@@ -184,13 +184,38 @@ TEST(vec3, multiplication)
 	EXPECT_FLOAT_EQ(a.y, 1.0f);
 	EXPECT_FLOAT_EQ(a.z, 1.0f);
 
-	EXPECT_FLOAT_EQ(b.x, 1.0f);
-	EXPECT_FLOAT_EQ(b.y, 2.0f);
-	EXPECT_FLOAT_EQ(b.z, 3.0f);
+	EXPECT_FLOAT_EQ(b.x, a.x*1.0f);
+	EXPECT_FLOAT_EQ(b.y, a.y*2.0f);
+	EXPECT_FLOAT_EQ(b.z, a.z*3.0f);
 
-	EXPECT_FLOAT_EQ(c.x, 1.0f);
-	EXPECT_FLOAT_EQ(c.y, 4.0f);
-	EXPECT_FLOAT_EQ(c.z, 9.0f);
+	EXPECT_FLOAT_EQ(c.x, b.x*b.x);
+	EXPECT_FLOAT_EQ(c.y, b.y*b.y);
+	EXPECT_FLOAT_EQ(c.z, b.z*b.z);
+}
+
+/**
+ * test_vec3_multiplication
+ */
+TEST(vec3, division)
+{
+	const vec3 a = vec3(1.0f, 1.0f, 1.0f);
+	VEC2_BASIC_CHECKS(a);
+	const vec3 b = a / vec3(1.0f, 2.0f, 3.0f);
+	VEC2_BASIC_CHECKS(b);
+	const vec3 c = b / b;
+	VEC3_BASIC_CHECKS(c);
+
+	EXPECT_FLOAT_EQ(a.x, 1.0f);
+	EXPECT_FLOAT_EQ(a.y, 1.0f);
+	EXPECT_FLOAT_EQ(a.z, 1.0f);
+
+	EXPECT_FLOAT_EQ(b.x, a.x/1.0f);
+	EXPECT_FLOAT_EQ(b.y, a.y/2.0f);
+	EXPECT_FLOAT_EQ(b.z, a.z/3.0f);
+
+	EXPECT_FLOAT_EQ(c.x, b.x/b.x);
+	EXPECT_FLOAT_EQ(c.y, b.y/b.y);
+	EXPECT_FLOAT_EQ(c.z, b.z/b.z);
 }
 
 /**
