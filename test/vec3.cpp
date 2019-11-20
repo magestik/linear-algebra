@@ -219,6 +219,23 @@ TEST(vec3, division)
 }
 
 /**
+ * test_vec3_cross
+ */
+TEST(vec3, cross)
+{
+	const vec3 a(1.0f, 0.0f, 0.0f);
+	VEC2_BASIC_CHECKS(a);
+	const vec3 b(0.0f, 1.0f, 0.0f);
+	VEC2_BASIC_CHECKS(b);
+	const vec3 c = cross(a, b);
+	VEC2_BASIC_CHECKS(c);
+
+	EXPECT_FLOAT_EQ(c.x, 0.0f);
+	EXPECT_FLOAT_EQ(c.y, 0.0f);
+	EXPECT_FLOAT_EQ(c.z, 1.0f);
+}
+
+/**
  * test_vec3_length
  */
 TEST(vec3, length)
