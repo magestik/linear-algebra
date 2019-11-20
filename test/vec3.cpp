@@ -119,6 +119,31 @@ TEST(vec3, negation)
 }
 
 /**
+ * test_vec3_addition
+ */
+TEST(vec3, addition)
+{
+	const vec3 a = vec3(0.0f, 0.0f, 0.0f);
+	VEC3_BASIC_CHECKS(a);
+	const vec3 b = a + vec3(1.0f, 2.0f, 3.0f);
+	VEC3_BASIC_CHECKS(b);
+	const vec3 c = b + b;
+	VEC3_BASIC_CHECKS(c);
+
+	EXPECT_FLOAT_EQ(a.x, 0.0f);
+	EXPECT_FLOAT_EQ(a.y, 0.0f);
+	EXPECT_FLOAT_EQ(a.z, 0.0f);
+
+	EXPECT_FLOAT_EQ(b.x, 1.0f);
+	EXPECT_FLOAT_EQ(b.y, 2.0f);
+	EXPECT_FLOAT_EQ(b.z, 3.0f);
+
+	EXPECT_FLOAT_EQ(c.x, 2.0f);
+	EXPECT_FLOAT_EQ(c.y, 4.0f);
+	EXPECT_FLOAT_EQ(c.z, 6.0f);
+}
+
+/**
  * test_vec3_length
  */
 TEST(vec3, length)

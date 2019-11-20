@@ -192,6 +192,34 @@ TEST(vec4, negation)
 }
 
 /**
+ * test_vec4_addition
+ */
+TEST(vec4, addition)
+{
+	const vec4 a = vec4(0.0f, 0.0f, 0.0f, 0.0f);
+	VEC4_BASIC_CHECKS(a);
+	const vec4 b = a + vec4(1.0f, 2.0f, 3.0f, 4.0f);
+	VEC4_BASIC_CHECKS(b);
+	const vec4 c = b + b;
+	VEC4_BASIC_CHECKS(c);
+
+	EXPECT_FLOAT_EQ(a.x, 0.0f);
+	EXPECT_FLOAT_EQ(a.y, 0.0f);
+	EXPECT_FLOAT_EQ(a.z, 0.0f);
+	EXPECT_FLOAT_EQ(a.w, 0.0f);
+
+	EXPECT_FLOAT_EQ(b.x, 1.0f);
+	EXPECT_FLOAT_EQ(b.y, 2.0f);
+	EXPECT_FLOAT_EQ(b.z, 3.0f);
+	EXPECT_FLOAT_EQ(b.w, 4.0f);
+
+	EXPECT_FLOAT_EQ(c.x, 2.0f);
+	EXPECT_FLOAT_EQ(c.y, 4.0f);
+	EXPECT_FLOAT_EQ(c.z, 6.0f);
+	EXPECT_FLOAT_EQ(c.w, 8.0f);
+}
+
+/**
  * test_vec4_length
  */
 TEST(vec4, length)
