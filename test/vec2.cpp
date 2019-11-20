@@ -174,6 +174,40 @@ TEST(vec2, division)
 }
 
 /**
+ * test_vec2_multiplication_scalar
+ */
+TEST(vec2, multiplication_scalar)
+{
+	const vec2 a = 3.0f * vec2(1.0f, 2.0f);
+	VEC2_BASIC_CHECKS(a);
+	const vec2 b = vec2(4.0f, 5.0f) * 6.0f;
+	VEC2_BASIC_CHECKS(b);
+
+	EXPECT_FLOAT_EQ(a.x, 3.0f*1.0f);
+	EXPECT_FLOAT_EQ(a.y, 3.0f*2.0f);
+
+	EXPECT_FLOAT_EQ(b.x, 4.0f*6.0f);
+	EXPECT_FLOAT_EQ(b.y, 5.0f*6.0f);
+}
+
+/**
+ * test_vec2_division_scalar
+ */
+TEST(vec2, division_scalar)
+{
+	const vec2 a = 3.0f / vec2(1.0f, 2.0f);
+	VEC2_BASIC_CHECKS(a);
+	const vec2 b = vec2(4.0f, 5.0f) / 6.0f;
+	VEC2_BASIC_CHECKS(b);
+
+	EXPECT_FLOAT_EQ(a.x, 3.0f/1.0f);
+	EXPECT_FLOAT_EQ(a.y, 3.0f/2.0f);
+
+	EXPECT_FLOAT_EQ(b.x, 4.0f/6.0f);
+	EXPECT_FLOAT_EQ(b.y, 5.0f/6.0f);
+}
+
+/**
  * test_vec2_length
  */
 TEST(vec2, length)

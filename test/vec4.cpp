@@ -304,6 +304,48 @@ TEST(vec4, division)
 }
 
 /**
+ * test_vec4_multiplication_scalar
+ */
+TEST(vec4, multiplication_scalar)
+{
+	const vec4 a = 5.0f * vec4(1.0f, 2.0f, 3.0f, 4.0f);
+	VEC4_BASIC_CHECKS(a);
+	const vec4 b = vec4(6.0f, 7.0f, 8.0f, 9.0f) * 10.0f;
+	VEC4_BASIC_CHECKS(b);
+
+	EXPECT_FLOAT_EQ(a.x, 5.0f*1.0f);
+	EXPECT_FLOAT_EQ(a.y, 5.0f*2.0f);
+	EXPECT_FLOAT_EQ(a.z, 5.0f*3.0f);
+	EXPECT_FLOAT_EQ(a.w, 5.0f*4.0f);
+
+	EXPECT_FLOAT_EQ(b.x, 6.0f*10.0f);
+	EXPECT_FLOAT_EQ(b.y, 7.0f*10.0f);
+	EXPECT_FLOAT_EQ(b.z, 8.0f*10.0f);
+	EXPECT_FLOAT_EQ(b.w, 9.0f*10.0f);
+}
+
+/**
+ * test_vec4_division_scalar
+ */
+TEST(vec4, division_scalar)
+{
+	const vec4 a = 5.0f / vec4(1.0f, 2.0f, 3.0f, 4.0f);
+	VEC4_BASIC_CHECKS(a);
+	const vec4 b = vec4(6.0f, 7.0f, 8.0f, 9.0f) / 10.0f;
+	VEC4_BASIC_CHECKS(b);
+
+	EXPECT_FLOAT_EQ(a.x, 5.0f/1.0f);
+	EXPECT_FLOAT_EQ(a.y, 5.0f/2.0f);
+	EXPECT_FLOAT_EQ(a.z, 5.0f/3.0f);
+	EXPECT_FLOAT_EQ(a.w, 5.0f/4.0f);
+
+	EXPECT_FLOAT_EQ(b.x, 6.0f/10.0f);
+	EXPECT_FLOAT_EQ(b.y, 7.0f/10.0f);
+	EXPECT_FLOAT_EQ(b.z, 8.0f/10.0f);
+	EXPECT_FLOAT_EQ(b.w, 9.0f/10.0f);
+}
+
+/**
  * test_vec4_length
  */
 TEST(vec4, length)

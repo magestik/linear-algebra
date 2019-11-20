@@ -149,9 +149,9 @@ TEST(vec3, addition)
 TEST(vec3, subtraction)
 {
 	const vec3 a = vec3(0.0f, 0.0f, 0.0f);
-	VEC2_BASIC_CHECKS(a);
+	VEC3_BASIC_CHECKS(a);
 	const vec3 b = a - vec3(1.0f, 2.0f, 3.0f);
-	VEC2_BASIC_CHECKS(b);
+	VEC3_BASIC_CHECKS(b);
 	const vec3 c = b - b;
 	VEC3_BASIC_CHECKS(c);
 
@@ -174,9 +174,9 @@ TEST(vec3, subtraction)
 TEST(vec3, multiplication)
 {
 	const vec3 a = vec3(1.0f, 1.0f, 1.0f);
-	VEC2_BASIC_CHECKS(a);
+	VEC3_BASIC_CHECKS(a);
 	const vec3 b = a * vec3(1.0f, 2.0f, 3.0f);
-	VEC2_BASIC_CHECKS(b);
+	VEC3_BASIC_CHECKS(b);
 	const vec3 c = b * b;
 	VEC3_BASIC_CHECKS(c);
 
@@ -199,9 +199,9 @@ TEST(vec3, multiplication)
 TEST(vec3, division)
 {
 	const vec3 a = vec3(1.0f, 1.0f, 1.0f);
-	VEC2_BASIC_CHECKS(a);
+	VEC3_BASIC_CHECKS(a);
 	const vec3 b = a / vec3(1.0f, 2.0f, 3.0f);
-	VEC2_BASIC_CHECKS(b);
+	VEC3_BASIC_CHECKS(b);
 	const vec3 c = b / b;
 	VEC3_BASIC_CHECKS(c);
 
@@ -216,6 +216,44 @@ TEST(vec3, division)
 	EXPECT_FLOAT_EQ(c.x, b.x/b.x);
 	EXPECT_FLOAT_EQ(c.y, b.y/b.y);
 	EXPECT_FLOAT_EQ(c.z, b.z/b.z);
+}
+
+/**
+ * test_vec3_multiplication_scalar
+ */
+TEST(vec3, multiplication_scalar)
+{
+	const vec3 a = 4.0f * vec3(1.0f, 2.0f, 3.0f);
+	VEC3_BASIC_CHECKS(a);
+	const vec3 b = vec3(5.0f, 6.0f, 7.0f) * 8.0f;
+	VEC3_BASIC_CHECKS(b);
+
+	EXPECT_FLOAT_EQ(a.x, 4.0f*1.0f);
+	EXPECT_FLOAT_EQ(a.y, 4.0f*2.0f);
+	EXPECT_FLOAT_EQ(a.z, 4.0f*3.0f);
+
+	EXPECT_FLOAT_EQ(b.x, 5.0f*8.0f);
+	EXPECT_FLOAT_EQ(b.y, 6.0f*8.0f);
+	EXPECT_FLOAT_EQ(b.z, 7.0f*8.0f);
+}
+
+/**
+ * test_vec3_division_scalar
+ */
+TEST(vec3, division_scalar)
+{
+	const vec3 a = 4.0f / vec3(1.0f, 2.0f, 3.0f);
+	VEC3_BASIC_CHECKS(a);
+	const vec3 b = vec3(5.0f, 6.0f, 7.0f) / 8.0f;
+	VEC3_BASIC_CHECKS(b);
+
+	EXPECT_FLOAT_EQ(a.x, 4.0f/1.0f);
+	EXPECT_FLOAT_EQ(a.y, 4.0f/2.0f);
+	EXPECT_FLOAT_EQ(a.z, 4.0f/3.0f);
+
+	EXPECT_FLOAT_EQ(b.x, 5.0f/8.0f);
+	EXPECT_FLOAT_EQ(b.y, 6.0f/8.0f);
+	EXPECT_FLOAT_EQ(b.z, 7.0f/8.0f);
 }
 
 /**
