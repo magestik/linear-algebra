@@ -208,6 +208,15 @@ static inline /*constexpr*/ vector2<T> refract(const vector2<T> & I, const vecto
 }
 
 /**
+ *
+ */
+template<typename T>
+static inline T atan(const vector2<T> & v)
+{
+	return atan2(v.y, v.x);
+}
+
+/**
  * perform a component-wise equal-to comparison of two vectors
  */
 template<typename T>

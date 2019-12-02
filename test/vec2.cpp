@@ -258,3 +258,29 @@ TEST(vec2, normalize)
 	VEC2_BASIC_CHECKS(b);
 	EXPECT_TRUE(all(normalize(b) == vec2(1.0f, 0.0f)));
 }
+
+/**
+ * test_vec2_atan
+ */
+TEST(vec2, atan)
+{
+	constexpr vec2 a(1.0f, 0.0f);
+	VEC2_BASIC_CHECKS(a);
+	EXPECT_FLOAT_EQ(atan(a), 0.0f);
+
+	constexpr vec2 b(1.0f, 1.0f);
+	VEC2_BASIC_CHECKS(b);
+	EXPECT_FLOAT_EQ(atan(b), M_PI_4);
+
+	constexpr vec2 c(-1.0f, -1.0f);
+	VEC2_BASIC_CHECKS(c);
+	EXPECT_FLOAT_EQ(atan(c), -3.0f * M_PI_4);
+
+	constexpr vec2 d(0.0f, 1.0f);
+	VEC2_BASIC_CHECKS(d);
+	EXPECT_FLOAT_EQ(atan(d), M_PI_2);
+
+	constexpr vec2 e(0.0f, -1.0f);
+	VEC2_BASIC_CHECKS(e);
+	EXPECT_FLOAT_EQ(atan(e), -1.0f * M_PI_2);
+}
