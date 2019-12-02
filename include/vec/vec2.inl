@@ -210,8 +210,15 @@ static inline /*constexpr*/ vector2<T> refract(const vector2<T> & I, const vecto
 /**
  *
  */
-template<typename T>
-static inline T atan(const vector2<T> & v)
+static inline float atan(const vector2<float> & v)
+{
+	return atan2f(v.y, v.x);
+}
+
+/**
+ *
+ */
+static inline double atan(const vector2<double> & v)
 {
 	return atan2(v.y, v.x);
 }
