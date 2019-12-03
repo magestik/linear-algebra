@@ -270,11 +270,11 @@ TEST(vec2, atan)
 
 	constexpr vec2 b(1.0f, 1.0f);
 	VEC2_BASIC_CHECKS(b);
-	EXPECT_FLOAT_EQ(atan(b), M_PI_4);
+	EXPECT_FLOAT_EQ(atan(b), (float)M_PI_4);
 
 	constexpr vec2 c(-1.0f, -1.0f);
 	VEC2_BASIC_CHECKS(c);
-	EXPECT_FLOAT_EQ(atan(c), -3.0f * M_PI_4);
+	EXPECT_FLOAT_EQ(atan(c), -3.0f * (float)M_PI_4);
 
 	constexpr vec2 d(0.0f, 1.0f);
 	VEC2_BASIC_CHECKS(d);
@@ -282,5 +282,5 @@ TEST(vec2, atan)
 
 	constexpr vec2 e(0.0f, -1.0f);
 	VEC2_BASIC_CHECKS(e);
-	EXPECT_FLOAT_EQ(atan(e), -1.0f * M_PI_2);
+	EXPECT_FLOAT_EQ(atan(e), -1.0f * (float)M_PI_2);
 }
