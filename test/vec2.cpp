@@ -278,7 +278,7 @@ TEST(vec2, atan)
 
 	constexpr vec2 d(0.0f, 1.0f);
 	VEC2_BASIC_CHECKS(d);
-	EXPECT_FLOAT_EQ(atan(d), M_PI_2);
+	EXPECT_FLOAT_EQ(atan(d), (float)M_PI_2);
 
 	constexpr vec2 e(0.0f, -1.0f);
 	VEC2_BASIC_CHECKS(e);
