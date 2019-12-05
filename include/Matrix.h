@@ -2,8 +2,8 @@
 
 #define _USE_MATH_DEFINES
 #include <math.h>
-#include <stdint.h>
 
+#include "Compiler.h"
 #include "Maths.h"
 
 #include "mat/mat2x2.h"
