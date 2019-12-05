@@ -223,6 +223,13 @@ TEST(vec4, members_assignement)
 	EXPECT_FLOAT_EQ(a.y, 10.0f);
 	EXPECT_FLOAT_EQ(a.z, 11.0f);
 	EXPECT_FLOAT_EQ(a.w, 12.0f);
+
+	a.xyzw = a.wzyx;
+	VEC2_BASIC_CHECKS(a);
+	EXPECT_FLOAT_EQ(a.x, 12.0f);
+	EXPECT_FLOAT_EQ(a.y, 11.0f);
+	EXPECT_FLOAT_EQ(a.z, 10.0f);
+	EXPECT_FLOAT_EQ(a.w, 9.0f);
 }
 
 /**

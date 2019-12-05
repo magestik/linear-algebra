@@ -68,6 +68,17 @@ TEST(vec3, constructors)
 	EXPECT_FLOAT_EQ(e.x, d.x);
 	EXPECT_FLOAT_EQ(e.y, d.y);
 	EXPECT_FLOAT_EQ(e.z, 6.0f);
+
+	const vec2 f(7.0f, 8.0f);
+	VEC2_BASIC_CHECKS(d);
+	EXPECT_FLOAT_EQ(f.x, 7.0f);
+	EXPECT_FLOAT_EQ(f.y, 8.0f);
+
+	const vec3 g(9.0f, f);
+	VEC3_BASIC_CHECKS(e);
+	EXPECT_FLOAT_EQ(g.x, 9.0f);
+	EXPECT_FLOAT_EQ(g.y, f.x);
+	EXPECT_FLOAT_EQ(g.z, f.y);
 }
 
 /**
@@ -103,6 +114,17 @@ TEST(vec3, constructors_constexpr)
 	EXPECT_FLOAT_EQ(e.x, d.x);
 	EXPECT_FLOAT_EQ(e.y, d.y);
 	EXPECT_FLOAT_EQ(e.z, 6.0f);
+
+	constexpr vec2 f(7.0f, 8.0f);
+	VEC2_BASIC_CHECKS(d);
+	EXPECT_FLOAT_EQ(f.x, 7.0f);
+	EXPECT_FLOAT_EQ(f.y, 8.0f);
+
+	constexpr vec3 g(9.0f, f);
+	VEC3_BASIC_CHECKS(e);
+	EXPECT_FLOAT_EQ(g.x, 9.0f);
+	EXPECT_FLOAT_EQ(g.y, f.x);
+	EXPECT_FLOAT_EQ(g.z, f.y);
 }
 
 /**
@@ -147,6 +169,12 @@ TEST(vec3, members_assignement)
 	EXPECT_FLOAT_EQ(a.x, 7.0f);
 	EXPECT_FLOAT_EQ(a.y, 8.0f);
 	EXPECT_FLOAT_EQ(a.z, 9.0f);
+
+	a.xyz = a.zyx;
+	VEC2_BASIC_CHECKS(a);
+	EXPECT_FLOAT_EQ(a.x, 9.0f);
+	EXPECT_FLOAT_EQ(a.y, 8.0f);
+	EXPECT_FLOAT_EQ(a.z, 7.0f);
 }
 
 /**

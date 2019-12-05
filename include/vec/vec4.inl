@@ -10,7 +10,7 @@
 template<typename T>
 static inline constexpr vector4<T> operator-(const vector4<T> & v)
 {
-   return(vector4<T>(-v.x, -v.y, -v.z, -v.w));
+   return(vector4<T>(-v.native));
 }
 
 /**
@@ -19,7 +19,7 @@ static inline constexpr vector4<T> operator-(const vector4<T> & v)
 template<typename T>
 static inline constexpr vector4<T> operator+(const vector4<T> & a, const vector4<T> & b)
 {
-	return(vector4<T>((a.x + b.x), (a.y + b.y), (a.z + b.z), (a.w + b.w)));
+	return(vector4<T>(a.native + b.native));
 }
 
 /**
@@ -28,7 +28,7 @@ static inline constexpr vector4<T> operator+(const vector4<T> & a, const vector4
 template<typename T>
 static inline constexpr vector4<T> operator-(const vector4<T> & a, const vector4<T> & b)
 {
-	return(vector4<T>((a.x - b.x), (a.y - b.y), (a.z - b.z), (a.w - b.w)));
+	return(vector4<T>(a.native - b.native));
 }
 
 /**
@@ -37,7 +37,7 @@ static inline constexpr vector4<T> operator-(const vector4<T> & a, const vector4
 template<typename T>
 static inline constexpr vector4<T> operator*(const vector4<T> & a, const vector4<T> & b)
 {
-	return(vector4<T>((a.x * b.x), (a.y * b.y), (a.z * b.z), (a.w * b.w)));
+	return(vector4<T>(a.native * b.native));
 }
 
 /**
@@ -46,7 +46,7 @@ static inline constexpr vector4<T> operator*(const vector4<T> & a, const vector4
 template<typename T>
 static inline constexpr vector4<T> operator/(const vector4<T> & a, const vector4<T> & b)
 {
-	return(vector4<T>((a.x / b.x), (a.y / b.y), (a.z / b.z), (a.w / b.w)));
+	return(vector4<T>(a.native / b.native));
 }
 
 /**
@@ -55,7 +55,7 @@ static inline constexpr vector4<T> operator/(const vector4<T> & a, const vector4
 template<typename T>
 static inline constexpr vector4<T> operator*(T s, const vector4<T> & v)
 {
-	return(vector4<T>((s * v.x), (s * v.y), (s * v.z), (s * v.w)));
+	return(vector4<T>(s * v.native));
 }
 
 /**
@@ -64,7 +64,7 @@ static inline constexpr vector4<T> operator*(T s, const vector4<T> & v)
 template<typename T>
 static inline constexpr vector4<T> operator*(const vector4<T> & v, T s)
 {
-	return(vector4<T>((s * v.x), (s * v.y), (s * v.z), (s * v.w)));
+	return(vector4<T>(v.native * s));
 }
 
 /**
@@ -73,7 +73,7 @@ static inline constexpr vector4<T> operator*(const vector4<T> & v, T s)
 template<typename T>
 static inline constexpr vector4<T> operator/(T s, const vector4<T> & v)
 {
-	return(vector4<T>((s / v.x), (s / v.y), (s / v.z), (s / v.w)));
+	return(vector4<T>(s / v.native));
 }
 
 /**
@@ -82,7 +82,7 @@ static inline constexpr vector4<T> operator/(T s, const vector4<T> & v)
 template<typename T>
 static inline constexpr vector4<T> operator/(const vector4<T> & v, T s)
 {
-	return(vector4<T>((v.x / s), (v.y / s), (v.z / s), (v.w / s)));
+	return(vector4<T>(v.native / s));
 }
 
 /**

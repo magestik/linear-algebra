@@ -10,7 +10,7 @@
 template<typename T>
 static inline constexpr vector2<T> operator-(const vector2<T> & v)
 {
-   return(vector2<T>(-v.x, -v.y));
+   return(vector2<T>(-v.native));
 }
 
 /**
@@ -19,7 +19,7 @@ static inline constexpr vector2<T> operator-(const vector2<T> & v)
 template<typename T>
 static inline constexpr vector2<T> operator+(const vector2<T> & a, const vector2<T> & b)
 {
-	return(vector2<T>((a.x + b.x), (a.y + b.y)));
+	return(vector2<T>(a.native + b.native));
 }
 
 /**
@@ -28,7 +28,7 @@ static inline constexpr vector2<T> operator+(const vector2<T> & a, const vector2
 template<typename T>
 static inline constexpr vector2<T> operator-(const vector2<T> & a, const vector2<T> & b)
 {
-	return(vector2<T>((a.x - b.x), (a.y - b.y)));
+	return(vector2<T>(a.native - b.native));
 }
 
 /**
@@ -37,7 +37,7 @@ static inline constexpr vector2<T> operator-(const vector2<T> & a, const vector2
 template<typename T>
 static inline constexpr vector2<T> operator*(const vector2<T> & a, const vector2<T> & b)
 {
-	return(vector2<T>((a.x * b.x), (a.y * b.y)));
+	return(vector2<T>(a.native * b.native));
 }
 
 /**
@@ -46,7 +46,7 @@ static inline constexpr vector2<T> operator*(const vector2<T> & a, const vector2
 template<typename T>
 static inline constexpr vector2<T> operator/(const vector2<T> & a, const vector2<T> & b)
 {
-	return(vector2<T>((a.x / b.x), (a.y / b.y)));
+	return(vector2<T>(a.native / b.native));
 }
 
 /**
@@ -55,7 +55,7 @@ static inline constexpr vector2<T> operator/(const vector2<T> & a, const vector2
 template<typename T>
 static inline constexpr vector2<T> operator*(T s, const vector2<T> & v)
 {
-	return(vector2<T>((s * v.x), (s * v.y)));
+	return(vector2<T>(s * v.native));
 }
 
 /**
@@ -64,7 +64,7 @@ static inline constexpr vector2<T> operator*(T s, const vector2<T> & v)
 template<typename T>
 static inline constexpr vector2<T> operator*(const vector2<T> & v, T s)
 {
-	return(vector2<T>((v.x * s), (v.y * s)));
+	return(vector2<T>(v.native * s));
 }
 
 /**
@@ -73,7 +73,7 @@ static inline constexpr vector2<T> operator*(const vector2<T> & v, T s)
 template<typename T>
 static inline constexpr vector2<T> operator/(T s, const vector2<T> & v)
 {
-	return(vector2<T>((s / v.x), (s / v.y)));
+	return(vector2<T>(s / v.native));
 }
 
 /**
@@ -82,7 +82,7 @@ static inline constexpr vector2<T> operator/(T s, const vector2<T> & v)
 template<typename T>
 static inline constexpr vector2<T> operator/(const vector2<T> & v, T s)
 {
-	return(vector2<T>((v.x / s), (v.y / s)));
+	return(vector2<T>(v.native / s));
 }
 
 /**
