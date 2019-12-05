@@ -124,6 +124,26 @@ TEST(vec3, assignement)
 }
 
 /**
+ * test_vec3_members_assignement
+ */
+TEST(vec3, members_assignement)
+{
+	vec3 a = vec3(1.0f, 2.0f, 3.0f);
+	VEC2_BASIC_CHECKS(a);
+	EXPECT_FLOAT_EQ(a.x, 1.0f);
+	EXPECT_FLOAT_EQ(a.y, 2.0f);
+	EXPECT_FLOAT_EQ(a.z, 3.0f);
+
+	a.x = 4.0f;
+	a.y = 5.0f;
+	a.z = 6.0f;
+	VEC2_BASIC_CHECKS(a);
+	EXPECT_FLOAT_EQ(a.x, 4.0f);
+	EXPECT_FLOAT_EQ(a.y, 5.0f);
+	EXPECT_FLOAT_EQ(a.z, 6.0f);
+}
+
+/**
  * test_vec3_negation
  */
 TEST(vec3, negation)

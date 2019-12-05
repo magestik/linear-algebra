@@ -196,6 +196,29 @@ TEST(vec4, assignement)
 }
 
 /**
+ * test_vec4_members_assignement
+ */
+TEST(vec4, members_assignement)
+{
+	vec4 a = vec4(1.0f, 2.0f, 3.0f, 4.0f);
+	VEC2_BASIC_CHECKS(a);
+	EXPECT_FLOAT_EQ(a.x, 1.0f);
+	EXPECT_FLOAT_EQ(a.y, 2.0f);
+	EXPECT_FLOAT_EQ(a.z, 3.0f);
+	EXPECT_FLOAT_EQ(a.w, 4.0f);
+
+	a.x = 5.0f;
+	a.y = 6.0f;
+	a.z = 7.0f;
+	a.w = 8.0f;
+	VEC2_BASIC_CHECKS(a);
+	EXPECT_FLOAT_EQ(a.x, 5.0f);
+	EXPECT_FLOAT_EQ(a.y, 6.0f);
+	EXPECT_FLOAT_EQ(a.z, 7.0f);
+	EXPECT_FLOAT_EQ(a.w, 8.0f);
+}
+
+/**
  * test_vec4_negation
  */
 TEST(vec4, negation)

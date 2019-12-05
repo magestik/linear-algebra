@@ -92,6 +92,23 @@ TEST(vec2, assignement)
 }
 
 /**
+ * test_vec2_members_assignement
+ */
+TEST(vec2, members_assignement)
+{
+	vec2 a = vec2(1.0f, 2.0f);
+	VEC2_BASIC_CHECKS(a);
+	EXPECT_FLOAT_EQ(a.x, 1.0f);
+	EXPECT_FLOAT_EQ(a.y, 2.0f);
+
+	a.x = 3.0f;
+	a.y = 4.0f;
+	VEC2_BASIC_CHECKS(a);
+	EXPECT_FLOAT_EQ(a.x, 3.0f);
+	EXPECT_FLOAT_EQ(a.y, 4.0f);
+}
+
+/**
  * test_vec2_negation
  */
 TEST(vec2, negation)
