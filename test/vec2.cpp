@@ -107,10 +107,12 @@ TEST(vec2, members_assignement)
 	EXPECT_FLOAT_EQ(a.x, 3.0f);
 	EXPECT_FLOAT_EQ(a.y, 4.0f);
 
+#if 0
 	a.xy = vec2(5.0f, 6.0f);
 	VEC2_BASIC_CHECKS(a);
 	EXPECT_FLOAT_EQ(a.x, 5.0f);
 	EXPECT_FLOAT_EQ(a.y, 6.0f);
+#endif
 }
 
 /**
