@@ -6,6 +6,33 @@
 
 static_assert(sizeof(vec2) == 2*sizeof(float), "vec2 bad size");
 
+static const vec2 values_const [128];
+static constexpr vec2 values_constexpr [128];
+
+/**
+ * test_vec2_static_init
+ */
+TEST(vec2, static_init)
+{
+	for (int i = 0; i < 128; ++i)
+	{
+		EXPECT_FLOAT_EQ(values_const[i].x, 0.0f);
+		EXPECT_FLOAT_EQ(values_const[i].y, 0.0f);
+	}
+}
+
+/**
+ * test_vec2_static_init_constexpr
+ */
+TEST(vec2, static_init_constexpr)
+{
+	for (int i = 0; i < 128; ++i)
+	{
+		EXPECT_FLOAT_EQ(values_constexpr[i].x, 0.0f);
+		EXPECT_FLOAT_EQ(values_constexpr[i].y, 0.0f);
+	}
+}
+
 /**
  * test_vec2_constructors
  */

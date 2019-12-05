@@ -6,6 +6,37 @@
 
 static_assert(sizeof(vec4) == 4*sizeof(float), "vec4 bad size");
 
+static const vec4 values_const [128];
+static constexpr vec4 values_constexpr [128];
+
+/**
+ * test_vec4_static_init
+ */
+TEST(vec4, static_init)
+{
+	for (int i = 0; i < 128; ++i)
+	{
+		EXPECT_FLOAT_EQ(values_const[i].x, 0.0f);
+		EXPECT_FLOAT_EQ(values_const[i].y, 0.0f);
+		EXPECT_FLOAT_EQ(values_const[i].z, 0.0f);
+		EXPECT_FLOAT_EQ(values_const[i].w, 0.0f);
+	}
+}
+
+/**
+ * test_vec4_static_init_constexpr
+ */
+TEST(vec4, static_init_constexpr)
+{
+	for (int i = 0; i < 128; ++i)
+	{
+		EXPECT_FLOAT_EQ(values_constexpr[i].x, 0.0f);
+		EXPECT_FLOAT_EQ(values_constexpr[i].y, 0.0f);
+		EXPECT_FLOAT_EQ(values_constexpr[i].z, 0.0f);
+		EXPECT_FLOAT_EQ(values_constexpr[i].w, 0.0f);
+	}
+}
+
 /**
  * test_vec4_constructors
  */
