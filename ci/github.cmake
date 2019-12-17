@@ -5,11 +5,11 @@ set(CTEST_SITE "github.com")
 
 set(CTEST_BUILD_NAME "github-${GITHUB_RUNNER_OS}-default")
 
-if (GITHUB_RUNNER_OS STREQUAL "ubuntu-latest")
+if (GITHUB_RUNNER_OS STREQUAL "Linux")
 	set(CTEST_CMAKE_GENERATOR "Unix Makefiles")
-elseif (GITHUB_RUNNER_OS STREQUAL "ubuntu-latest")
+elseif (GITHUB_RUNNER_OS STREQUAL "macOS")
 	set(CTEST_CMAKE_GENERATOR "Xcode")
-elseif (GITHUB_RUNNER_OS STREQUAL "windows-latest")
+elseif (GITHUB_RUNNER_OS STREQUAL "Windows")
 	set(CTEST_CMAKE_GENERATOR "Visual Studio 16 2019")
 endif()
 
