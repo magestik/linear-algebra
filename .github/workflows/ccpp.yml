@@ -3,7 +3,7 @@ name: C/C++ CI
 on: [push]
 
 env:
-  GTest_ROOT: $HOME/googletest
+  GTest_ROOT: ${{ env.HOME }} /googletest
 
 jobs:
   build:
@@ -22,7 +22,6 @@ jobs:
         cmake -DBUILD_GMOCK=FALSE -DCMAKE_INSTALL_PREFIX=$GTest_ROOT ..
         cmake --build .
         cmake --build . --target install
-        cd $TRAVIS_BUILD_DIR
 
     - name: Build & Test
       run: ctest -S ci/github.cmake
