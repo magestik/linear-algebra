@@ -55,9 +55,11 @@ jobs:
         cd googletest
         mkdir build
         cd build
-        cmake -DBUILD_GMOCK=FALSE -DCMAKE_INSTALL_PREFIX=%HOME%/googletest ..
-        cmake --build .
-        cmake --build . --target install
+        cmake -DBUILD_GMOCK=FALSE -DCMAKE_INSTALL_PREFIX=%HOME%/googletest -Dgtest_force_shared_crt=ON ..
+        cmake --build . --config Debug
+        cmake --build . --config Debug --target install
+        cmake --build . --config Release
+        cmake --build . --config Release --target install
         echo "::set-env name=GTest_ROOT::%HOME%/googletest"
 
     - name: Build & Test
