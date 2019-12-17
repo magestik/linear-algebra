@@ -2,9 +2,6 @@ name: C/C++ CI
 
 on: [push]
 
-env:
-  GTest_ROOT: ${{ env.HOME }} /googletest
-
 jobs:
   build:
 
@@ -19,9 +16,10 @@ jobs:
         cd googletest
         mkdir build
         cd build
-        cmake -DBUILD_GMOCK=FALSE -DCMAKE_INSTALL_PREFIX=$GTest_ROOT ..
+        cmake -DBUILD_GMOCK=FALSE -DCMAKE_INSTALL_PREFIX=$HOME/googletest ..
         cmake --build .
         cmake --build . --target install
+	echo "::set-env name=GTest_ROOT::$HOME/googletest"
 
     - name: Build & Test
       run: ctest -S ci/github.cmake
