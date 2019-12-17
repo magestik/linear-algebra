@@ -3,7 +3,7 @@ name: C/C++ CI
 on: [push]
 
 env:
-    - GTest_ROOT=$HOME/googletest
+  GTest_ROOT: $HOME/googletest
 
 jobs:
   build:
