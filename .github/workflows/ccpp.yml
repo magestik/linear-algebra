@@ -1,14 +1,10 @@
-name: C/C++ CI
+name: CTest
 
 on: [push]
 
 jobs:
-  build:
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
-
-    runs-on: ${{ matrix.os }}
+  Linux:
+    runs-on: ubuntu-latest
     
     steps:
     - uses: actions/checkout@v1
@@ -23,6 +19,46 @@ jobs:
         cmake --build .
         cmake --build . --target install
         echo "::set-env name=GTest_ROOT::$HOME/googletest"
+
+    - name: Build & Test
+      run: ctest -S ci/github.cmake
+
+  MacOS:
+    runs-on: macos-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Install Google Test
+      run: |
+        git clone --single-branch --branch v1.8.x https://github.com/google/googletest.git
+        cd googletest
+        mkdir build
+        cd build
+        cmake -DBUILD_GMOCK=FALSE -DCMAKE_INSTALL_PREFIX=$HOME/googletest ..
+        cmake --build .
+        cmake --build . --target install
+        echo "::set-env name=GTest_ROOT::$HOME/googletest"
+
+    - name: Build & Test
+      run: ctest -S ci/github.cmake
+
+  Windows:
+    runs-on: windows-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Install Google Test
+      run: |
+        git clone --single-branch --branch v1.8.x https://github.com/google/googletest.git
+        cd googletest
+        mkdir build
+        cd build
+        cmake -DBUILD_GMOCK=FALSE -DCMAKE_INSTALL_PREFIX=%HOME%/googletest ..
+        cmake --build .
+        cmake --build . --target install
+        echo "::set-env name=GTest_ROOT::%HOME%/googletest"
 
     - name: Build & Test
       run: ctest -S ci/github.cmake
