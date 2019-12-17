@@ -30,3 +30,4 @@
 # CMake
 build/*
 .vs/*
+CMakeLists.txt.user
