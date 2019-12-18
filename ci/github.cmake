@@ -3,14 +3,27 @@ set(CTEST_BINARY_DIRECTORY "${CTEST_SOURCE_DIRECTORY}/build")
 
 set(CTEST_SITE "github.com")
 
-set(CTEST_BUILD_NAME "github-${GITHUB_RUNNER_OS}-default")
-
 if (GITHUB_RUNNER_OS STREQUAL "Linux")
+
+	set(CXX "$ENV{CXX}")
+	if (CXX STREQUAL "g++")
+		set(CTEST_BUILD_NAME "linux-gcc-default")
+	elseif (CXX STREQUAL "clang++")
+		set(CTEST_BUILD_NAME "linux-gcc-default")
+	endif()
+
 	set(CTEST_CMAKE_GENERATOR "Unix Makefiles")
+
 elseif (GITHUB_RUNNER_OS STREQUAL "macOS")
+
+	set(CTEST_BUILD_NAME "osx-xcode-ide")
 	set(CTEST_CMAKE_GENERATOR "Xcode")
+
 elseif (GITHUB_RUNNER_OS STREQUAL "Windows")
+
+	set(CTEST_BUILD_NAME "windows-vs16-ide")
 	set(CTEST_CMAKE_GENERATOR "Visual Studio 16 2019")
+
 endif()
 
 set(CTEST_BUILD_CONFIGURATION "Debug")
