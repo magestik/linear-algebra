@@ -6,6 +6,10 @@ jobs:
   Linux:
     runs-on: ubuntu-latest
 
+    strategy:    
+      matrix:
+        cxx: [g++, clang++]
+
     steps:
     - uses: actions/checkout@v1
 
@@ -23,6 +27,9 @@ jobs:
 
     - name: Build & Test
       run: ctest -S ci/github.cmake -DGITHUB_RUNNER_OS=${{ runner.os }}
+
+      env:
+        CXX: ${{ matrix.cxx }}
 
   MacOS:
     runs-on: macos-latest
