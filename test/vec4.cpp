@@ -7,7 +7,10 @@
 static_assert(sizeof(vec4) == 4*sizeof(float), "vec4 bad size");
 
 static const vec4 values_const [128];
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1920 // compiler bug
 static constexpr vec4 values_constexpr [128];
+#endif
 
 /**
  * test_vec4_static_init
@@ -26,6 +29,7 @@ TEST(vec4, static_init)
 /**
  * test_vec4_static_init_constexpr
  */
+#if !defined(_MSC_VER) || _MSC_VER >= 1920 // compiler bug
 TEST(vec4, static_init_constexpr)
 {
 	for (int i = 0; i < 128; ++i)
@@ -36,6 +40,7 @@ TEST(vec4, static_init_constexpr)
 		EXPECT_FLOAT_EQ(values_constexpr[i].w, 0.0f);
 	}
 }
+#endif
 
 /**
  * test_vec4_constructors
