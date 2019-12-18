@@ -13,7 +13,7 @@ if (NOT DEFINED IOS)
 	set(IOS 0)
 endif()
 
-if (GITHUB_RUNNER_OS STREQUAL "Linux")
+if (CMAKE_HOST_SYSTEM_NAME STREQUAL "Linux")
 
 	if (ANDROID)
 		set(CTEST_BUILD_NAME "android-gcc-default")
@@ -29,7 +29,7 @@ if (GITHUB_RUNNER_OS STREQUAL "Linux")
 
 	set(CTEST_CMAKE_GENERATOR "Unix Makefiles")
 
-elseif (GITHUB_RUNNER_OS STREQUAL "macOS")
+elseif (CMAKE_HOST_SYSTEM_NAME STREQUAL "Darwin")
 
 	if (IOS)
 		set(CTEST_BUILD_NAME "ios-xcode-ide")
@@ -40,7 +40,7 @@ elseif (GITHUB_RUNNER_OS STREQUAL "macOS")
 
 	set(CTEST_CMAKE_GENERATOR "Xcode")
 
-elseif (GITHUB_RUNNER_OS STREQUAL "Windows")
+elseif (CMAKE_HOST_SYSTEM_NAME STREQUAL "Windows")
 
 	set(CTEST_BUILD_NAME "windows-vs16-ide")
 	set(CTEST_CMAKE_GENERATOR "Visual Studio 16 2019")
@@ -52,7 +52,7 @@ set(CTEST_BUILD_CONFIGURATION "Debug")
 set(WITH_MEMCHECK TRUE)
 set(WITH_COVERAGE FALSE)
 
-find_program(CTEST_GIT_COMMAND NAMES git)
+find_program(CTEST_GIT_COMMAND NAMES git git.cmd)
 find_program(CTEST_COVERAGE_COMMAND NAMES gcov)
 find_program(CTEST_MEMORYCHECK_COMMAND NAMES valgrind)
 
