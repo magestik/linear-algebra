@@ -26,6 +26,7 @@ jobs:
         echo "::set-env name=GTest_ROOT::$HOME/googletest"
 
     - name: Build & Test
+      shell: bash
       run: ctest -S ci/github.cmake -DGITHUB_RUNNER_OS=${{ runner.os }}
 
       env:
@@ -50,6 +51,7 @@ jobs:
         echo "::set-env name=GTest_ROOT::$HOME/googletest"
 
     - name: Build & Test
+      shell: bash
       run: ctest -S ci/github.cmake -DGITHUB_RUNNER_OS=${{ runner.os }}
 
   Windows:
@@ -73,4 +75,5 @@ jobs:
         echo "::set-env name=GTest_ROOT::$HOME/googletest"
 
     - name: Build & Test
+      shell: bash
       run: ctest -S ci/github.cmake -DGITHUB_RUNNER_OS=${{ runner.os }}
