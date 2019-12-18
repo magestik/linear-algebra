@@ -1,4 +1,10 @@
 
+find_program(CTEST_GIT_COMMAND NAMES git git.cmd)
+find_program(CTEST_COVERAGE_COMMAND NAMES gcov)
+find_program(CTEST_MEMORYCHECK_COMMAND NAMES valgrind)
+
+set(CTEST_UPDATE_COMMAND "${CTEST_GIT_COMMAND}")
+
 ctest_start(Continuous)
 
 ctest_update()

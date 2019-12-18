@@ -4,6 +4,7 @@ set(CTEST_BINARY_DIRECTORY "${CTEST_SOURCE_DIRECTORY}/build")
 set(CTEST_SITE "github.com")
 
 set(CTEST_BUILD_OPTIONS "")
+set(CTEST_BUILD_CONFIGURATION "Debug")
 
 if (NOT DEFINED ANDROID)
 	set(ANDROID 0)
@@ -23,7 +24,7 @@ if (CMAKE_HOST_SYSTEM_NAME STREQUAL "Linux")
 		if (CXX STREQUAL "g++")
 			set(CTEST_BUILD_NAME "linux-gcc-default")
 		elseif (CXX STREQUAL "clang++")
-			set(CTEST_BUILD_NAME "linux-gcc-default")
+			set(CTEST_BUILD_NAME "linux-clang-default")
 		endif()
 	endif()
 
@@ -47,15 +48,7 @@ elseif (CMAKE_HOST_SYSTEM_NAME STREQUAL "Windows")
 
 endif()
 
-set(CTEST_BUILD_CONFIGURATION "Debug")
-
 set(WITH_MEMCHECK TRUE)
 set(WITH_COVERAGE FALSE)
-
-find_program(CTEST_GIT_COMMAND NAMES git git.cmd)
-find_program(CTEST_COVERAGE_COMMAND NAMES gcov)
-find_program(CTEST_MEMORYCHECK_COMMAND NAMES valgrind)
-
-set(CTEST_UPDATE_COMMAND "${CTEST_GIT_COMMAND}")
 
 include(${CTEST_SCRIPT_DIRECTORY}/common.cmake)
