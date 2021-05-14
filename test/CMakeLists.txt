@@ -15,7 +15,9 @@ if (WITH_COVERAGE)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage")
 endif()
 
-find_package(GTest REQUIRED)
+if (NOT TARGET GTest::GTest OR NOT TARGET GTest::Main)
+    find_package(GTest REQUIRED)
+endif()
 
 add_executable(test_linear_algebra_matrix mat2x2.cpp mat3x3.cpp mat4x4.cpp)
 target_link_libraries(test_linear_algebra_matrix PRIVATE linear-algebra)
